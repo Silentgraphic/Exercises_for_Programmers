@@ -1,0 +1,2 @@
+# Exercercises for Programmers
+[Exercises for Programmers: 57 Challenges to Develop Your Coding Skills ](https://www.amazon.co.uk/Exercises-Programmers-Challenges-Develop-Coding/dp/1680501224) is a 2015 publication that provides 57 increasing challenges to push software developers to learn new skills through experience.
