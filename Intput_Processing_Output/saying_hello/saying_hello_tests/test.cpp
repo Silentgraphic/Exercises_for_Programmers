@@ -1,4 +1,5 @@
 #include<string>
+#include<stdexcept>
 
 #include "pch.h"
 #include "saying_hello_header.h"
@@ -13,5 +14,5 @@ TEST(StringConcat, NoMarkerInFullString)
 {
 	std::string fullString = "Hello ";
 	std::string subString = "World";
-	EXPECT_NE(concatString(fullString, subString), "Hello World");
+	EXPECT_THROW(concatString(fullString, subString), std::invalid_argument);
 }
