@@ -1,6 +1,6 @@
 #include<string>
 #include<stdexcept>
-#include <sstream>
+#include<sstream>
 
 #include "pch.h"
 #include "saying_hello_header.h"
@@ -31,8 +31,15 @@ namespace consoleInput
 	TEST(ConsoleInput, ReturnInput)
 	{
 		std::string testString = "Hello World";
-		std::stringstream fakeInput("Hello World");
+		std::stringstream fakeInput;
+
+		fakeInput << "Hello World";
+
 		std::string returnedString = getConsoleInput(fakeInput, "Enter name:");
 		EXPECT_EQ(testString, returnedString);
 	}
+}
+
+namespace cosnoleOutput
+{
 }

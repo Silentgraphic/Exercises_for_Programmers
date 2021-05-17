@@ -24,5 +24,8 @@ std::string concatString(std::string fullString, const std::string subString)
 
 std::string getConsoleInput(std::istream& input, std::string message)
 {
-	return "Hello World";
+	std::string userInput;
+	std::cout << message;
+	getline(input, userInput);
+	return userInput;
 }
