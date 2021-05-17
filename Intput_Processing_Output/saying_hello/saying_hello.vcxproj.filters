@@ -18,7 +18,7 @@
     <ClCompile Include="src\saying_hello.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\concatString.cpp">
+    <ClCompile Include="src\saying_hello_functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

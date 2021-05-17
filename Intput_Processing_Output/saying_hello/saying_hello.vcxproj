@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\saying_hello.cpp" />
-    <ClCompile Include="src\concatString.cpp" />
+    <ClCompile Include="src\saying_hello_functions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\saying_hello_header.h" />
