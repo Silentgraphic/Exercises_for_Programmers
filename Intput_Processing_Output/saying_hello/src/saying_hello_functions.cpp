@@ -22,10 +22,14 @@ std::string concatString(std::string fullString, const std::string subString)
 	return fullString;
 }
 
-std::string getConsoleInput(std::istream& input, std::string message)
+std::string getConsoleInput(std::istream& input)
 {
 	std::string userInput;
-	std::cout << message;
 	getline(input, userInput);
 	return userInput;
+}
+
+void consoleOutput(std::ostream& output, std::string stringToBePrinted)
+{
+	output << stringToBePrinted;
 }

@@ -4,4 +4,6 @@
 
 std::string concatString(std::string fullString, std::string subString);
 
-std::string getConsoleInput(std::istream& input, std::string message);
+std::string getConsoleInput(std::istream& input);
+
+void consoleOutput(std::ostream& output, std::string stringToBePrinted);
