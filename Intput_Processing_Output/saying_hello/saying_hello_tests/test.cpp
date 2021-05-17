@@ -35,11 +35,18 @@ namespace consoleInput
 
 		fakeInput << "Hello World";
 
-		std::string returnedString = getConsoleInput(fakeInput, "Enter name:");
+		std::string returnedString = getConsoleInput(fakeInput);
 		EXPECT_EQ(testString, returnedString);
 	}
 }
 
 namespace cosnoleOutput
 {
+	TEST(ConsoleOutput, ReturnOutput)
+	{
+		std::string stringToBePrinted = "Hello World";
+		std::stringstream outPut;
+		consoleOutput(outPut, stringToBePrinted);
+		EXPECT_EQ(stringToBePrinted, outPut.str());
+	}
 }
