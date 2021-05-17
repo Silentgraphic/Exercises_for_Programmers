@@ -71,7 +71,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>concatString.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>saying_hello_functions.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>E:\programming\efp\Intput_Processing_Output\saying_hello\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -89,7 +89,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>concatString.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>saying_hello_functions.obj;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>E:\programming\efp\Intput_Processing_Output\saying_hello\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

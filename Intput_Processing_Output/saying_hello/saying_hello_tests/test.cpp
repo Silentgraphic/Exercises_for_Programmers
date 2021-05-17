@@ -1,5 +1,6 @@
 #include<string>
 #include<stdexcept>
+#include <sstream>
 
 #include "pch.h"
 #include "saying_hello_header.h"
@@ -22,5 +23,16 @@ namespace conCatString
 	{
 		std::string fullString = "Hello ";
 		EXPECT_THROW(concatString(fullString, subString), std::invalid_argument);
+	}
+}
+
+namespace consoleInput
+{
+	TEST(ConsoleInput, ReturnInput)
+	{
+		std::string testString = "Hello World";
+		std::stringstream fakeInput("Hello World");
+		std::string returnedString = getConsoleInput(fakeInput, "Enter name:");
+		EXPECT_EQ(testString, returnedString);
 	}
 }
