@@ -9,4 +9,5 @@ int main()
 	std::string name = getConsoleInput(std::cin);
 	std::string outputSentance = concatString("Hello, *, nice to meet you!", name);
 	consoleOutput(std::cout, outputSentance);
+	getConsoleInput(std::cin);
 }
