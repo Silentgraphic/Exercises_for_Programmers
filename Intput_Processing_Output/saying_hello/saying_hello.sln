@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "saying_hello", "..\saying_hello\saying_hello.vcxproj", "{F1E01FFD-C0E9-4E9E-9B37-28F9612391B9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "saying_hello", "saying_hello.vcxproj", "{F1E01FFD-C0E9-4E9E-9B37-28F9612391B9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "saying_hello_tests", "..\saying_hello\saying_hello_tests\saying_hello_tests.vcxproj", "{3A1F4595-E5E6-437A-8449-A0F02400A290}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "saying_hello_tests", "saying_hello_tests\saying_hello_tests.vcxproj", "{3A1F4595-E5E6-437A-8449-A0F02400A290}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
