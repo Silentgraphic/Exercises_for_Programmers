@@ -23,5 +23,8 @@
     <ClCompile Include="src\counting_the_number_of_charecters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\counting_the_number_of_characters_functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
