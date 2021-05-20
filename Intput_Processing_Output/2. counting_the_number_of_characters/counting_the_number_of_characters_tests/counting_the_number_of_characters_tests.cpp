@@ -37,10 +37,10 @@ namespace Output
 	TEST(Output, SetOutput)
 	{
 		std::string testString = "Hello World";
-		int fakeCharCount = 12;
+		int fakeCharCount = 11;
 		std::stringstream output;
 
-		std::string expectedOutput = "Hello World has 12 characters";
+		std::string expectedOutput = "Hello World has 11 characters";
 		std::string actualOutput;
 
 		charCountOutput(testString, fakeCharCount, output);
@@ -55,7 +55,7 @@ namespace CharCount
 	TEST(CharCount, ReturnCorrectCount)
 	{
 		std::string testString = "Hello World";
-		int fakeCharCount = 12;
+		int fakeCharCount = 11;
 
 		int actualCharCount = charCount(testString);
 
