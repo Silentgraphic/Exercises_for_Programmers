@@ -14,3 +14,8 @@ void charCountOutput(std::string& fullString, int& charCount, std::ostream& outp
 {
 	output << fullString << " has " << charCount << " characters";
 }
+
+int charCount(std::string& userString)
+{
+	return userString.length();
+}
