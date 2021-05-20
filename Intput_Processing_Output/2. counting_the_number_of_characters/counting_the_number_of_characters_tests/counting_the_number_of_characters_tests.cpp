@@ -45,7 +45,20 @@ namespace Output
 
 		charCountOutput(testString, fakeCharCount, output);
 
-		output << actualOutput;
+		actualOutput = output.str();
 		EXPECT_EQ(actualOutput, expectedOutput);
+	}
+}
+
+namespace CharCount
+{
+	TEST(CharCount, ReturnCorrectCount)
+	{
+		std::string testString = "Hello World";
+		int fakeCharCount = 12;
+
+		int actualCharCount = charCount(testString);
+
+		EXPECT_EQ(actualCharCount, fakeCharCount);
 	}
 }
