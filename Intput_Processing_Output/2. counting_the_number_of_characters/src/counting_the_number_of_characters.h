@@ -2,4 +2,4 @@
 #include <string>
 #include <sstream>
 
-std::string getConsoleInput(std::istream& input);
+std::string getUserString(std::istream& input, std::ostream& output);
