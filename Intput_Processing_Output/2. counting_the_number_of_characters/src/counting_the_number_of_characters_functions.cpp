@@ -10,6 +10,7 @@ std::string getUserString(std::istream& input, std::ostream& output)
 	return userInput;
 }
 
-void charCountOutput(std::string fullString, int charCount, std::ostream& output)
+void charCountOutput(std::string& fullString, int& charCount, std::ostream& output)
 {
+	output << fullString << " has " << charCount << " characters";
 }
