@@ -123,6 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\printing_quotes.cpp" />
+    <ClCompile Include="src\printing_quotes_functions.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\printing_quotes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
