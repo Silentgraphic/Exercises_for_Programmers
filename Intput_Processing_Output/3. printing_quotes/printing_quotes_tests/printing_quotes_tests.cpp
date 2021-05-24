@@ -1,8 +1,23 @@
 #include "pch.h"
 #include "printing_quotes.h"
 
-TEST(TestCaseName, TestName)
+#include <string>
+#include <sstream>
+
+namespace CharacterEscapeOutput
 {
-	EXPECT_EQ(1, 1);
-	EXPECT_TRUE(true);
+	TEST(characterEscapeOutput, returnCorrectOutput)
+	{
+		std::string name = "Foo";
+		std::string quote = "Hello world";
+		std::stringstream output;
+		std::string expectedOutput = "Foo says \" Hello World \"";
+		std::string actualOutput;
+
+		setEscapedOutput(name, quote, output);
+
+		actualOutput = output.str();
+
+		EXPECT_EQ(expectedOutput, actualOutput);
+	}
 }
