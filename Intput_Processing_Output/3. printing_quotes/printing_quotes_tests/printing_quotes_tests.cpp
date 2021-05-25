@@ -31,7 +31,7 @@ namespace Input
 		std::string returnedString;
 
 		std::string outputString = "What is the input string: ";
-		getUserString(fakeInput, output);
+		getUserString(outputString, fakeInput, output);
 
 		returnedString = output.str();
 
@@ -41,12 +41,13 @@ namespace Input
 	TEST(Input, ReturnInput)
 	{
 		std::string testString = "Hello World";
+		std::string prompt = "What is the input string: ";
 		std::stringstream fakeInput;
 		std::stringstream output;
 
 		fakeInput << "Hello World";
 
-		std::string returnedString = getUserString(fakeInput, output);
+		std::string returnedString = getUserString(prompt, fakeInput, output);
 		EXPECT_EQ(testString, returnedString);
 	}
 }
