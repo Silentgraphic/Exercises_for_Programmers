@@ -9,5 +9,5 @@ int main()
 	std::string quote = getUserString(quotePrompt, std::cin, std::cout);
 	std::string name = getUserString(namePrompt, std::cin, std::cout);
 	setEscapedOutput(name, quote, std::cout);
-	std::cin;
+	std::cin.get();
 }
