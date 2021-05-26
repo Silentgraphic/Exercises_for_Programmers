@@ -10,14 +10,14 @@ namespace GetUserInput
 	{
 		std::stringstream fakeInput;
 		std::stringstream output;
-		std::vector<std::string> words[4] = {
+		std::string words[4][2] = {
 		{"noun"},
 		{"verb"},
 		{"Abjective"},
 		{"Adverb"}
 		};
 
-		std::string expectedString = "Enter a noun: Foo\n Enter a verb: Foo\n Enter a abjective: Foo\n Enter a abverb: Foo\n";
+		std::string expectedString = "Enter a noun:Enter a verb:Enter a Abjective:Enter a Adverb:";
 
 		fakeInput << testString;
 
