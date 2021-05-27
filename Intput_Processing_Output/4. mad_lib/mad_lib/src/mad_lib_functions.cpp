@@ -13,14 +13,15 @@ void userPrompt(std::string(&words)[4][2], std::istream& input, std::ostream& ou
 
 void constructStoryOutput(std::string& story, std::string(&words)[4][2], std::ostream& output)
 {
-	const std::string marker = "*";
-	rsize_t pos = story.find(marker);
+	int counter = 0;
+	rsize_t pos = story.find(words[counter][0]);
 
 	while (pos != std::string::npos)
 	{
-		int counter = 1;
-		story = story.replace(pos, 1, words[counter][1]);
-		pos = story.find(marker);
+		int stringLength = words[counter][0].length();
+		story = story.replace(pos, stringLength, words[counter][1]);
+		counter++;
+		pos = story.find(words[counter][0]);
 	};
 
 	output << story;

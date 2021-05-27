@@ -53,14 +53,14 @@ namespace ConstructOutput
 	TEST(ConstructOutput, ReturnsConstructedString)
 	{
 		std::stringstream output;
-		std::string mockStory = "Do you * your * * *? That's hailarious!";
-		std::string expectedOutput = "Do you Foo your Foo Foo Foo? That's hailarious!";
+		std::string mockStory = "Do you Verb your Abjective Noun Adverb? That's hailarious!";
+		std::string expectedOutput = "Do you Bar your Baz Foo Qux? That's hailarious!";
 
 		std::string words[4][2] = {
-			{"noun","Foo"},
-			{"verb","Foo"},
-			{"Abjective","Foo"},
-			{"Adverb","Foo"}
+			{"Noun","Foo"},
+			{"Verb","Bar"},
+			{"Abjective","Baz"},
+			{"Adverb","Qux"}
 		};
 
 		constructStoryOutput(mockStory, words, output);
