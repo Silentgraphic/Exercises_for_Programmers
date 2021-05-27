@@ -65,6 +65,8 @@ namespace ConstructOutput
 
 		constructStoryOutput(mockStory, words, output);
 
-		EXPECT_EQ(expectedOutput, output.str());
+		std::string outputString = output.str();
+
+		EXPECT_EQ(expectedOutput, outputString);
 	}
 }
