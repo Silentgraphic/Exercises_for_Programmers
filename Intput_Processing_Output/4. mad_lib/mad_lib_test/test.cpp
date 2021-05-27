@@ -25,7 +25,7 @@ namespace GetUserInput
 		EXPECT_EQ(expectedString, output.str());
 	}
 
-	TEST(GetUserInput, AcceptsStringInput)
+	TEST(GetUserInput, ReturnsCorrectValue)
 	{
 		std::stringstream fakeInput;
 		std::stringstream output;
@@ -38,7 +38,7 @@ namespace GetUserInput
 		};
 
 		//God this is a bad way to do this but it's the only way I can think of
-		fakeInput << "Foo" << std::endl << "Foo" << std::endl << "Foo" << std::endl << "Foo";
+		fakeInput << testString << std::endl << testString << std::endl << testString << std::endl << testString;
 
 		userPrompt(words, fakeInput, output);
 
@@ -46,5 +46,25 @@ namespace GetUserInput
 		{
 			EXPECT_EQ(i[1], "Foo");
 		}
+	}
+}
+namespace ConstructOutput
+{
+	TEST(ConstructOutput, ReturnsConstructedString)
+	{
+		std::stringstream output;
+		std::string mockStory = "Do you * your * * *? That's hailarious!";
+		std::string expectedOutput = "Do you Foo your Foo Foo Foo? That's hailarious!";
+
+		std::string words[4][2] = {
+			{"noun","Foo"},
+			{"verb","Foo"},
+			{"Abjective","Foo"},
+			{"Adverb","Foo"}
+		};
+
+		constructStoryOutput(mockStory, words, output);
+
+		EXPECT_EQ(expectedOutput, output.str());
 	}
 }
