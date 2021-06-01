@@ -36,8 +36,37 @@ namespace ConverterFunction
 {
 	std::string intAsString = "1";
 
-	TEST(ConverterFunction)
+	TEST(ConverterFunction, ExpectAIntToBeReturned)
 	{
 		EXPECT_EQ(convertStringToInt(intAsString), 1);
+	}
+}
+
+namespace GetUserIntput
+{
+	const std::string testString = "Foo";
+
+	TEST(GetUserInput, ExpectAPromtForUser)
+	{
+		std::stringstream fakeInput;
+		std::stringstream output;
+
+		userPrompt(fakeInput, output);
+
+		std::string expectedOutput = "What is the first number:\nWhat is the second number:\n";
+
+		EXPECT_EQ(expectedOutput, output.str());
+	}
+
+	TEST(GetUserInput, ReturnsInputString)
+	{
+		std::stringstream fakeInput;
+		std::stringstream output;
+
+		fakeInput << testString;
+
+		std::string returnedString = userPrompt(fakeInput, output);
+
+		EXPECT_EQ(returnedString, testString);
 	}
 }
