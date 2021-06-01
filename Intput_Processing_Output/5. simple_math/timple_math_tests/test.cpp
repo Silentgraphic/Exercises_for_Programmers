@@ -45,15 +45,15 @@ namespace ConverterFunction
 namespace GetUserIntput
 {
 	const std::string testString = "Foo";
-
+	std::string prompt = "What is foo?";
 	TEST(GetUserInput, ExpectAPromtForUser)
 	{
 		std::stringstream fakeInput;
 		std::stringstream output;
 
-		userPrompt(fakeInput, output);
+		userPrompt(prompt, fakeInput, output);
 
-		std::string expectedOutput = "What is the first number:\nWhat is the second number:\n";
+		std::string expectedOutput = "What is foo?\n";
 
 		EXPECT_EQ(expectedOutput, output.str());
 	}
@@ -65,7 +65,7 @@ namespace GetUserIntput
 
 		fakeInput << testString;
 
-		std::string returnedString = userPrompt(fakeInput, output);
+		std::string returnedString = userPrompt(prompt, fakeInput, output);
 
 		EXPECT_EQ(returnedString, testString);
 	}
