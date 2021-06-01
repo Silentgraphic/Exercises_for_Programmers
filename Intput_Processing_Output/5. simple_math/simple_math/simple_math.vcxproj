@@ -124,10 +124,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\simple_math.cpp" />
+    <ClCompile Include="src\simple_math_class.cpp" />
     <ClCompile Include="src\simple_math_functions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\simple_math.h" />
+    <ClInclude Include="src\simple_math_class.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
