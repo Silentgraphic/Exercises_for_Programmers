@@ -1,3 +1,5 @@
+#include <string>
+
 #include "pch.h"
 #include "simple_math.h"
 #include "simple_math_class.h"
@@ -27,5 +29,15 @@ namespace SimpleMathClass
 	{
 		int returnedInt = simpleMathTestClass.division();
 		EXPECT_EQ(returnedInt, 1);
+	}
+}
+
+namespace ConverterFunction
+{
+	std::string intAsString = "1";
+
+	TEST(ConverterFunction)
+	{
+		EXPECT_EQ(convertStringToInt(intAsString), 1);
 	}
 }

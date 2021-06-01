@@ -47,6 +47,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\simple_math\simple_math.vcxproj">
+      <Project>{a15d1d40-d364-4561-94d8-05f2a5bb9699}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
@@ -67,7 +72,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>E:\programming\efp\Intput_Processing_Output\5. simple_math\simple_math\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>simple_math_functions.obj;simple_math_class.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>simple_math_class.obj;simple_math_functions.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -85,7 +90,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>E:\programming\efp\Intput_Processing_Output\5. simple_math\simple_math\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>simple_math_functions.obj;simple_math_class.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>simple_math_class.obj;simple_math_functions.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
