@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8d01023f-8ead-44d3-a7c2-38b611db246a}</ProjectGuid>
+    <ProjectGuid>{84abd39a-36df-49ba-aa0e-6b9769aecbf7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <ConfigurationType>Application</ConfigurationType>
@@ -46,11 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\simple_math\simple_math.vcxproj">
-      <Project>{a15d1d40-d364-4561-94d8-05f2a5bb9699}</Project>
-    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
