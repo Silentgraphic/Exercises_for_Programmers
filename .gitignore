@@ -403,3 +403,5 @@ FodyWeavers.xsd
 
 # Local History for Visual Studio Code
 .history/
+
+google_test_lib/
