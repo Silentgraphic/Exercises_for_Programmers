@@ -86,7 +86,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>E:\programming\efp\Intput_Processing_Output\5. simple_math\simple_math\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>simple_math_class.obj;simple_math_functions.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>simple_math_class.obj;simple_math_functions.obj;user_output.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -104,7 +104,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>E:\programming\efp\Intput_Processing_Output\5. simple_math\simple_math\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>simple_math_class.obj;simple_math_functions.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>simple_math_class.obj;simple_math_functions.obj;user_output.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

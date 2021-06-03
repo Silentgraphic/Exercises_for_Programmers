@@ -1,5 +1,3 @@
-#include <string>
-
 //I am using Gtest as a separate project and linkinging it in the pch.h
 //instead of using the build in Gtest adapter in VS as it currently has not been
 //updated and as a result does not include Gmock
@@ -7,8 +5,15 @@
 //https://stackoverflow.com/questions/60486110/how-to-use-googlemock-in-visual-studio
 #include "pch.h"
 
+#include <string>
+#include <sstream>
+
 #include "simple_math.h"
 #include "simple_math_class.h"
+#include "mock_simple_math.h"
+#include "user_ouput.h"
+
+using ::testing::Return;
 
 namespace SimpleMathClass
 {
@@ -28,7 +33,7 @@ namespace SimpleMathClass
 	}
 	TEST(SimpleMathClass, Mutiply)
 	{
-		int returnedInt = simpleMathTestClass.mutiply();
+		int returnedInt = simpleMathTestClass.multiply();
 		EXPECT_EQ(returnedInt, 4);
 	}
 	TEST(SimpleMathClass, Division)
@@ -74,5 +79,35 @@ namespace GetUserIntput
 		std::string returnedString = userPrompt(prompt, fakeInput, output);
 
 		EXPECT_EQ(returnedString, testString);
+	}
+}
+
+namespace UserOutput
+{
+	std::stringstream output;
+	MockSimpleMath simpleMathObject;
+	UserOuput userPromptObject(simpleMathObject);
+	TEST(UserOutput, WillCallAddition)
+	{
+		EXPECT_CALL(simpleMathObject, addition())
+			.Times(1);
+	}
+
+	TEST(UserOutput, WillCallSubtraction)
+	{
+		EXPECT_CALL(simpleMathObject, subtraction())
+			.Times(1);
+	}
+
+	TEST(UserOutput, WillCallMultiply)
+	{
+		EXPECT_CALL(simpleMathObject, multiply())
+			.Times(1);
+	}
+
+	TEST(UserOutput, WillCallDivision)
+	{
+		EXPECT_CALL(simpleMathObject, division())
+			.Times(1);
 	}
 }
