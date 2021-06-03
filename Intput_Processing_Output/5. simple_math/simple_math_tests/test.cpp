@@ -110,4 +110,9 @@ namespace UserOutput
 		EXPECT_CALL(simpleMathObject, division())
 			.Times(1);
 	}
+	TEST(UserOutput, CorrectOutput)
+	{
+		userPromptObject.printUserOutput(output);
+		EXPECT_EQ(output.str(), "0+0=0\n0-0=0\n0*0=0\n0/0=0\n");
+	}
 }
