@@ -24,12 +24,21 @@
     <ClCompile Include="src\simple_math_class.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\user_output.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\simple_math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\simple_math_class.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\user_ouput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simple_math_classes_interface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
