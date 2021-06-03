@@ -1,5 +1,15 @@
 #include "simple_math_class.h"
 
+int SimpleMath::getFirstNumber()
+{
+	return firstNumber;
+}
+
+int SimpleMath::getSecondNumber()
+{
+	return secondNumber;
+}
+
 int SimpleMath::addition()
 {
 	return firstNumber + secondNumber;

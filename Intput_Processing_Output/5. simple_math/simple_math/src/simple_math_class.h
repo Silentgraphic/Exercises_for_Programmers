@@ -9,6 +9,8 @@ public:
 	{
 	}
 
+	int getFirstNumber();
+	int getSecondNumber();
 	int addition();
 	int subtraction();
 	int multiply();
