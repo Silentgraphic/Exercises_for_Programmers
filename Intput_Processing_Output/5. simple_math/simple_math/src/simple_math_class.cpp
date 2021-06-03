@@ -10,7 +10,7 @@ int SimpleMath::subtraction()
 	return firstNumber - secondNumber;
 }
 
-int SimpleMath::mutiply()
+int SimpleMath::multiply()
 {
 	return firstNumber * secondNumber;
 }

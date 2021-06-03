@@ -11,7 +11,7 @@ public:
 
 	int addition();
 	int subtraction();
-	int mutiply();
+	int multiply();
 	int division();
 private:
 	int firstNumber;
