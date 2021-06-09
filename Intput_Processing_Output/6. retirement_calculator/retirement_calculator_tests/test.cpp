@@ -1,6 +1,12 @@
 #include "pch.h"
+#include "DateManipulator.h"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+namespace DateManipulatorTests
+{
+	DateManipulator testDateManipulator(2021, 25, 65);
+	TEST(SubRetirement, Expect40Years)
+	{
+		int returnedYear = testDateManipulator.subRetirement();
+		EXPECT_EQ(returnedYear, 40);
+	}
 }
