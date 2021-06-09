@@ -11,6 +11,7 @@ public:
 	};
 
 	int subRetirement();
+	int findRetirementYear();
 private:
 	int currentYear;
 	int userAge;

@@ -126,6 +126,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="retirement_calculator.cpp" />
+    <ClCompile Include="src\DateManipulator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\DateManipulator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

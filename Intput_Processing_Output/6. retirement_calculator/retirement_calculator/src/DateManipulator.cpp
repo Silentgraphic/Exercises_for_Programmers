@@ -2,5 +2,10 @@
 
 int DateManipulator::subRetirement()
 {
-	return 0;
+	return retirementAge - userAge;
+}
+
+int DateManipulator::findRetirementYear()
+{
+	return currentYear + retirementAge;
 }
