@@ -10,9 +10,9 @@ namespace DateManipulatorTests
 		EXPECT_EQ(returnedYear, 40);
 	}
 
-	TEST(FindRetirementYear, Expect2076)
+	TEST(FindRetirementYear, Expect2086)
 	{
 		int returnedYear = testDateManipulator.findRetirementYear();
-		EXPECT_EQ(returnedYear, 2076);
+		EXPECT_EQ(returnedYear, 2086);
 	}
 }
