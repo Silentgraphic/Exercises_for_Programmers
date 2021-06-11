@@ -21,9 +21,15 @@
     <ClCompile Include="src\DateManipulator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="getDate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DateManipulator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="getDate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
