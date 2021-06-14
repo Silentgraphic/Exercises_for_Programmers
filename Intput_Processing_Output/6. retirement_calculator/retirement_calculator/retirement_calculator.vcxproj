@@ -125,11 +125,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\convertStringToInt.cpp" />
     <ClCompile Include="src\DateManipulator.cpp" />
     <ClCompile Include="src\getDate.cpp" />
     <ClCompile Include="src\retirement_calculator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\convertStringToInt.h" />
     <ClInclude Include="src\DateManipulator.h" />
     <ClInclude Include="src\getDate.h" />
   </ItemGroup>

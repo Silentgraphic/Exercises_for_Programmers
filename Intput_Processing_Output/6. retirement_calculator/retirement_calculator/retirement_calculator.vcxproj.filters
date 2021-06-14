@@ -24,12 +24,18 @@
     <ClCompile Include="src\retirement_calculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\convertStringToInt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DateManipulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\getDate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\convertStringToInt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
