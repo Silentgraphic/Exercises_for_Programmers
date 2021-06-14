@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "DateManipulator.h"
 #include "getDate.h"
+#include "convertStringToInt.h"
+
+#include <string>
 
 namespace DateManipulatorTests
 {
@@ -23,5 +26,14 @@ namespace GetDateTests
 	TEST(GetDate, ReturnsInt)
 	{
 		EXPECT_EQ(typeid(int), typeid(getDate()));
+	}
+}
+
+namespace StringToInt
+{
+	TEST(StringToInt, ExpectedIntToBeReturned)
+	{
+		std::string intAsString = "1";
+		EXPECT_EQ(convertStringToInt(intAsString), 1);
 	}
 }
