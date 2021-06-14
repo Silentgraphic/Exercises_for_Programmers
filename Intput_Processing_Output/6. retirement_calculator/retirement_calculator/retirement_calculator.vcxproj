@@ -125,13 +125,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="getDate.cpp" />
-    <ClCompile Include="retirement_calculator.cpp" />
     <ClCompile Include="src\DateManipulator.cpp" />
+    <ClCompile Include="src\getDate.cpp" />
+    <ClCompile Include="src\retirement_calculator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="getDate.h" />
     <ClInclude Include="src\DateManipulator.h" />
+    <ClInclude Include="src\getDate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

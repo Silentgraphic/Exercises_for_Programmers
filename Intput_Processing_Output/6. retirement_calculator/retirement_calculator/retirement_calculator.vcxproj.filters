@@ -15,13 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="retirement_calculator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\DateManipulator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="getDate.cpp">
+    <ClCompile Include="src\getDate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\retirement_calculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <ClInclude Include="src\DateManipulator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="getDate.h">
+    <ClInclude Include="src\getDate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
