@@ -129,11 +129,13 @@
     <ClCompile Include="src\DateManipulator.cpp" />
     <ClCompile Include="src\getDate.cpp" />
     <ClCompile Include="src\retirement_calculator.cpp" />
+    <ClCompile Include="src\userPrompt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\convertStringToInt.h" />
     <ClInclude Include="src\DateManipulator.h" />
     <ClInclude Include="src\getDate.h" />
+    <ClInclude Include="src\userPrompt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
