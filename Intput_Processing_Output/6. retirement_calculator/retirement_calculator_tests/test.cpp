@@ -2,8 +2,10 @@
 #include "DateManipulator.h"
 #include "getDate.h"
 #include "convertStringToInt.h"
+#include "userPrompt.h"
 
 #include <string>
+#include <sstream>
 
 namespace DateManipulatorTests
 {
@@ -35,5 +37,34 @@ namespace StringToInt
 	{
 		std::string intAsString = "1";
 		EXPECT_EQ(convertStringToInt(intAsString), 1);
+	}
+}
+
+namespace GetUserIntput
+{
+	const std::string testString = "Foo";
+	std::string prompt = "What is foo?\n";
+	TEST(GetUserInput, ExpectAPromtForUser)
+	{
+		std::stringstream fakeInput;
+		std::stringstream output;
+
+		userPrompt(prompt, fakeInput, output);
+
+		std::string expectedOutput = "What is foo?\n";
+
+		EXPECT_EQ(expectedOutput, output.str());
+	}
+
+	TEST(GetUserInput, ReturnsInputString)
+	{
+		std::stringstream fakeInput;
+		std::stringstream output;
+
+		fakeInput << testString;
+
+		std::string returnedString = userPrompt(prompt, fakeInput, output);
+
+		EXPECT_EQ(returnedString, testString);
 	}
 }
