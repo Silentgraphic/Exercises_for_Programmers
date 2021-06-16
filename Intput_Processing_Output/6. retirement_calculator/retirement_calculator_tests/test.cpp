@@ -76,6 +76,11 @@ namespace StringInterpolation
 	const std::vector<std::string> testSubStrings = { "foo" , "bar" };
 	const std::vector<int> testSubInt = { 1,2 };
 
+	TEST(StringInterpolation, NoMarkerInFullString)
+	{
+		std::string testString = "What is ?";
+		EXPECT_THROW(stringInter<std::string>(testString, testSubStrings), std::invalid_argument);
+	}
 	TEST(StringInterpolation, ReturnsStringWithSingleStringInput)
 	{
 		std::string testString = "What is *?";
