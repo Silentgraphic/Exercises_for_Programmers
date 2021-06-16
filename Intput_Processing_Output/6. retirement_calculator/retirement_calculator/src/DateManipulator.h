@@ -1,19 +1,21 @@
 #pragma once
+#include<vector>
 
 class DateManipulator
 {
 public:
-	DateManipulator(int currentYear, int userAge, int retirementAge) :
-		currentYear(currentYear),
+	DateManipulator(int userAge, int retirementAge) :
 		userAge(userAge),
 		retirementAge(retirementAge)
 	{
 	};
 
-	int subRetirement();
-	int findRetirementYear();
+	void subRetirement();
+	void findRetirementYear();
+	void setYear(int year);
+	std::vector<int> getYearVector();
 private:
-	int currentYear;
 	int userAge;
 	int retirementAge;
+	std::vector<int> years;
 };

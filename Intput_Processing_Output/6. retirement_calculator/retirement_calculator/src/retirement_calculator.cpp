@@ -16,12 +16,11 @@ int main()
 	int currentAge = convertStringToInt(currentAgeString);
 	int retireAge = convertStringToInt(retireAgeString);
 
-	DateManipulator dateManipulator(getDate(), currentAge, retireAge);
-	std::vector<int> years;
-	years.push_back(dateManipulator.subRetirement());
-	years.push_back(getDate());
-	years.push_back(dateManipulator.findRetirementYear());
+	DateManipulator dateManipulator(currentAge, retireAge);
+	dateManipulator.subRetirement();
+	dateManipulator.setYear(getDate());
+	dateManipulator.findRetirementYear();
 
-	std::string fullString = stringInter<int>((std::string)"You have * years until you can retire\nIt's * you can retire in *", years);
+	std::string fullString = stringInter<int>((std::string)"You have * years until you can retire\nIt's * you can retire in *", dateManipulator.getYearVector());
 	consoleOutput(std::cout, fullString);
 }

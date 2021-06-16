@@ -1,11 +1,19 @@
 #include "DateManipulator.h"
 
-int DateManipulator::subRetirement()
+void DateManipulator::subRetirement()
 {
-	return retirementAge - userAge;
+	years.push_back(retirementAge - userAge);
 }
 
-int DateManipulator::findRetirementYear()
+void DateManipulator::findRetirementYear()
 {
-	return currentYear + retirementAge;
+	years.push_back(years[0] + retirementAge);
+}
+void DateManipulator::setYear(int currentYear)
+{
+	years.push_back(currentYear);
+}
+std::vector<int> DateManipulator::getYearVector()
+{
+	return years;
 }
