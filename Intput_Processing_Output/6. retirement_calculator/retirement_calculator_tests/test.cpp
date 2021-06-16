@@ -11,17 +11,32 @@
 
 namespace DateManipulatorTests
 {
-	DateManipulator testDateManipulator(2021, 25, 65);
+	TEST(SetDate, Expect2021)
+	{
+		DateManipulator testSetDate(25, 65);
+		testSetDate.setYear(2021);
+		std::vector<int> returnedYear = testSetDate.getYearVector();
+		EXPECT_EQ(returnedYear[0], 2021);
+	}
 	TEST(SubRetirement, Expect40Years)
 	{
-		int returnedYear = testDateManipulator.subRetirement();
-		EXPECT_EQ(returnedYear, 40);
+		DateManipulator testSubRetirement(25, 65);
+
+		testSubRetirement.subRetirement();
+
+		std::vector<int> returnedYear = testSubRetirement.getYearVector();
+		EXPECT_EQ(returnedYear[0], 40);
 	}
 
 	TEST(FindRetirementYear, Expect2086)
 	{
-		int returnedYear = testDateManipulator.findRetirementYear();
-		EXPECT_EQ(returnedYear, 2086);
+		DateManipulator testRetirementYear(25, 65);
+
+		testRetirementYear.setYear(2021);
+
+		testRetirementYear.findRetirementYear();
+		std::vector<int> returnedYear = testRetirementYear.getYearVector();
+		EXPECT_EQ(returnedYear[1], 2086);
 	}
 }
 
