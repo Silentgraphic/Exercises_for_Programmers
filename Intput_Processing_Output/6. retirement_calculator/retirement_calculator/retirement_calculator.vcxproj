@@ -125,6 +125,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\consoleOutput.cpp" />
     <ClCompile Include="src\convertStringToInt.cpp" />
     <ClCompile Include="src\DateManipulator.cpp" />
     <ClCompile Include="src\getDate.cpp" />
@@ -132,6 +133,7 @@
     <ClCompile Include="src\userPrompt.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\consoleOutput.h" />
     <ClInclude Include="src\convertStringToInt.h" />
     <ClInclude Include="src\DateManipulator.h" />
     <ClInclude Include="src\getDate.h" />
