@@ -3,9 +3,11 @@
 #include "getDate.h"
 #include "convertStringToInt.h"
 #include "userPrompt.h"
+#include "stringInterpolation.h"
 
 #include <string>
 #include <sstream>
+#include <vector>
 
 namespace DateManipulatorTests
 {
@@ -66,5 +68,47 @@ namespace GetUserIntput
 		std::string returnedString = userPrompt(prompt, fakeInput, output);
 
 		EXPECT_EQ(returnedString, testString);
+	}
+}
+
+namespace StringInterpolation
+{
+	const std::vector<std::string> testSubStrings = { "foo" , "bar" };
+	const std::vector<int> testSubInt = { 1,2 };
+
+	TEST(StringInterpolation, ReturnsStringWithSingleStringInput)
+	{
+		std::string testString = "What is *?";
+		std::string expectedString = "What is foo?";
+
+		std::string returnedString = stringInter<std::string>(testString, testSubStrings);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+
+	TEST(StringInterpolation, ReturnsStringWithMultipleStringInput)
+	{
+		std::string testString = "What is * *?";
+		std::string expectedString = "What is foo bar?";
+
+		std::string returnedString = stringInter<std::string>(testString, testSubStrings);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+	TEST(StringInterpolation, ReturnsStringWithSingleIntInput)
+	{
+		std::string testString = "What is *?";
+		std::string expectedString = "What is 1?";
+		std::string returnedString = stringInter<int>(testString, testSubInt);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+	TEST(StringInterpolation, ReturnsStringWithMultipleIntInput)
+	{
+		std::string testString = "What is * *?";
+		std::string expectedString = "What is 1 2?";
+		std::string returnedString = stringInter<int>(testString, testSubInt);
+
+		EXPECT_EQ(expectedString, returnedString);
 	}
 }
