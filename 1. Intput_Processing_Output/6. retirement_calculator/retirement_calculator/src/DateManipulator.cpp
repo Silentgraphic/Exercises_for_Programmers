@@ -1,4 +1,5 @@
 #include "DateManipulator.h"
+#include <stdexcept>
 
 void DateManipulator::subRetirement()
 {
@@ -7,7 +8,14 @@ void DateManipulator::subRetirement()
 
 void DateManipulator::findRetirementYear()
 {
-	years.push_back(years[0] + retirementAge);
+	if (years[1] == NULL)
+	{
+		throw std::invalid_argument("set retirment first");
+	}
+	else
+	{
+		years.push_back(years[0] + years[1]);
+	}
 }
 void DateManipulator::setYear(int currentYear)
 {

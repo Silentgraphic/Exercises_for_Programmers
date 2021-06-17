@@ -28,15 +28,16 @@ namespace DateManipulatorTests
 		EXPECT_EQ(returnedYear[0], 40);
 	}
 
-	TEST(FindRetirementYear, Expect2086)
+	TEST(FindRetirementYear, Expect2061)
 	{
 		DateManipulator testRetirementYear(25, 65);
 
 		testRetirementYear.setYear(2021);
+		testRetirementYear.subRetirement();
 
 		testRetirementYear.findRetirementYear();
 		std::vector<int> returnedYear = testRetirementYear.getYearVector();
-		EXPECT_EQ(returnedYear[1], 2086);
+		EXPECT_EQ(returnedYear[2], 2061);
 	}
 }
 
