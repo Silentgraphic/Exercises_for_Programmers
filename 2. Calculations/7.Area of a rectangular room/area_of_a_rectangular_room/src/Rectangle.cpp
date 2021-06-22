@@ -1,14 +1,16 @@
 #include "Rectangle.h"
 
 Rectangle::Rectangle() {}
-void Rectangle::setHeight(double height)
+void Rectangle::setHeight(double rectangleHeight)
 {
+	height = rectangleHeight;
 }
-void Rectangle::setWidth(double width)
+void Rectangle::setWidth(double rectangleWidth)
 {
+	width = rectangleWidth;
 }
 double Rectangle::calculateArea()
 {
-	return 0.0;
+	return width * height;
 }
 ;
