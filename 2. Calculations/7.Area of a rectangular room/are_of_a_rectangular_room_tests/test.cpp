@@ -4,9 +4,20 @@
 //To add test framework back in follow this StackOverflow answer
 //https://stackoverflow.com/questions/60486110/how-to-use-googlemock-in-visual-studio
 #include "pch.h"
+#include "Rectangle.h"
 
-TEST(TestCaseName, TestName)
+namespace RectangleObject
 {
-	EXPECT_EQ(1, 1);
-	EXPECT_TRUE(true);
-}
+	TEST(RectangleObject, CalculateAreaMethod)
+	{
+		Rectangle testRectangle;
+
+		double testHeight = 23.0;
+		double testWidth = 12.0;
+
+		testRectangle.setHeight(testHeight);
+		testRectangle.setWidth(testWidth);
+
+		EXPECT_EQ(testRectangle.calculateArea(), 276);
+	}
+};
