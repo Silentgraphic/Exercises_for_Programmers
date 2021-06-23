@@ -5,6 +5,7 @@
 //https://stackoverflow.com/questions/60486110/how-to-use-googlemock-in-visual-studio
 #include "pch.h"
 #include "Rectangle.h"
+#include "convert_to_meters.h"
 
 namespace RectangleObject
 {
@@ -21,3 +22,20 @@ namespace RectangleObject
 		EXPECT_EQ(testRectangle.calculateArea(), 276);
 	}
 };
+
+namespace ConvertToMeters
+{
+	TEST(ConvertToMeters, CovertsWholeFeet)
+	{
+		double testLengthInFeet = 12.0;
+		double testLengthInMeters = convertToMeters(testLengthInFeet);
+		EXPECT_EQ(testLengthInMeters, 3.66);
+	}
+
+	TEST(ConvertToMeters, ConversFeetAndInches)
+	{
+		double testLengthInFeet = 12.5;
+		double testLengthInMeters = convertToMeters(testLengthInFeet);
+		EXPECT_EQ(testLengthInMeters, 3.81);
+	}
+}

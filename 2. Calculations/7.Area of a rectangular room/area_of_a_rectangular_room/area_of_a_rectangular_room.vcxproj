@@ -142,9 +142,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\area_of_a_rectangular_room.cpp" />
+    <ClCompile Include="src\convert_to_meters.cpp" />
     <ClCompile Include="src\Rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\convert_to_meters.h" />
     <ClInclude Include="src\Rectangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
