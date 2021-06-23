@@ -29,13 +29,13 @@ namespace ConvertToMeters
 	{
 		double testLengthInFeet = 12.0;
 		double testLengthInMeters = convertToMeters(testLengthInFeet);
-		EXPECT_EQ(testLengthInMeters, 3.66);
+		EXPECT_FLOAT_EQ(testLengthInMeters, 3.66);
 	}
 
 	TEST(ConvertToMeters, ConversFeetAndInches)
 	{
 		double testLengthInFeet = 12.5;
 		double testLengthInMeters = convertToMeters(testLengthInFeet);
-		EXPECT_EQ(testLengthInMeters, 3.81);
+		EXPECT_FLOAT_EQ(testLengthInMeters, 3.81);
 	}
 }
