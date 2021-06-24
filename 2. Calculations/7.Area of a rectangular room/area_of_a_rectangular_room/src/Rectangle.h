@@ -3,7 +3,7 @@ class Rectangle
 {
 public:
 	Rectangle();
-	void setHeight(double height);
+	void setLength(double height);
 	void setWidth(double width);
 	double calculateArea();
 private:

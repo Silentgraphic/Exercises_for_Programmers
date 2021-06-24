@@ -17,10 +17,10 @@ namespace RectangleObject
 	{
 		Rectangle testRectangle;
 
-		double testHeight = 23.0;
+		double testLength = 23.0;
 		double testWidth = 12.0;
 
-		testRectangle.setHeight(testHeight);
+		testRectangle.setLength(testLength);
 		testRectangle.setWidth(testWidth);
 
 		EXPECT_EQ(testRectangle.calculateArea(), 276);

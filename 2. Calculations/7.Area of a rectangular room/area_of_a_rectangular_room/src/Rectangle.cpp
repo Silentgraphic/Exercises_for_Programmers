@@ -1,7 +1,7 @@
 #include "Rectangle.h"
 
 Rectangle::Rectangle() {}
-void Rectangle::setHeight(double rectangleHeight)
+void Rectangle::setLength(double rectangleHeight)
 {
 	height = rectangleHeight;
 }
