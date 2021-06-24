@@ -24,12 +24,18 @@
     <ClCompile Include="src\convert_to_meters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\convertStringToDouble.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Rectangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\convert_to_meters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\convertStringToDouble.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
