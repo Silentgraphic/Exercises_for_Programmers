@@ -9,6 +9,7 @@
 #include "string"
 #include "convertStringToDouble.h"
 #include "userPrompt.h"
+#include "stringInterpolation.h"
 
 namespace RectangleObject
 {
@@ -84,5 +85,64 @@ namespace GetUserIntput
 		std::string returnedString = userPrompt(prompt, fakeInput, output);
 
 		EXPECT_EQ(returnedString, testString);
+	}
+}
+
+namespace StringInterpolation
+{
+	const std::vector<std::string> testSubStrings = { "foo" , "bar" };
+	const std::vector<double> testWholeSubDouble = { 1.0,2.0 };
+	const std::vector<double> testSubDouble = { 1.1,2.2 };
+	std::string testSingleMarkerString = "What is *?";
+	std::string testDoubleMarkerString = "What is * *?";
+	TEST(StringInterpolation, NoMarkerInFullString)
+	{
+		std::string testString = "What is ?";
+		EXPECT_THROW(stringInter<std::string>(testString, testSubStrings), std::invalid_argument);
+	}
+	TEST(StringInterpolation, ReturnsStringWithSingleStringInput)
+	{
+		std::string expectedString = "What is foo?";
+
+		std::string returnedString = stringInter<std::string>(testSingleMarkerString, testSubStrings);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+
+	TEST(StringInterpolation, ReturnsStringWithMultipleStringInput)
+	{
+		std::string expectedString = "What is foo bar?";
+
+		std::string returnedString = stringInter<std::string>(testDoubleMarkerString, testSubStrings);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+	TEST(StringInterpolation, ReturnsStringWithSingleWholeDoubleInput)
+	{
+		std::string expectedString = "What is 1?";
+		std::string returnedString = stringInter<double>(testSingleMarkerString, testWholeSubDouble);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+	TEST(StringInterpolation, ReturnsStringWithMultipleWholeDoubleInput)
+	{
+		std::string expectedString = "What is 1 2?";
+		std::string returnedString = stringInter<double>(testDoubleMarkerString, testWholeSubDouble);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+	TEST(StringInterpolation, ReturnsStringWithSingleDoubleInput)
+	{
+		std::string expectedString = "What is 1.1?";
+		std::string returnedString = stringInter<double>(testSingleMarkerString, testSubDouble);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+	TEST(StringInterpolation, ReturnsStringWithMultipleDoubleInput)
+	{
+		std::string expectedString = "What is 1.1 2.2?";
+		std::string returnedString = stringInter<double>(testDoubleMarkerString, testSubDouble);
+
+		EXPECT_EQ(expectedString, returnedString);
 	}
 }
