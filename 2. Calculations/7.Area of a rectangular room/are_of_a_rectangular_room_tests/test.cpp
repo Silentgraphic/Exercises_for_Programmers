@@ -49,13 +49,13 @@ namespace StringToDouble
 	TEST(StringToDouble, ExpectedWholeDoubleToBeReturned)
 	{
 		std::string intAsString = "1.0";
-		EXPECT_FLOAT_EQ(convertStringToInt(intAsString), 1.0);
+		EXPECT_FLOAT_EQ(convertStringToDouble(intAsString), 1.0);
 	}
 
 	TEST(StringToDouble, ExpectedDoubleToBeReturned)
 	{
 		std::string intAsString = "1.1";
-		EXPECT_FLOAT_EQ(convertStringToInt(intAsString), 1.1);
+		EXPECT_FLOAT_EQ(convertStringToDouble(intAsString), 1.1);
 	}
 }
 

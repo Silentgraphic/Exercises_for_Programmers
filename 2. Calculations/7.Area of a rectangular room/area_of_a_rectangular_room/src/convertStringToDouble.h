@@ -1,4 +1,4 @@
 #pragma once
 #include <string>
 
-double convertStringToInt(std::string& valueToConvert);
+double convertStringToDouble(std::string& valueToConvert);

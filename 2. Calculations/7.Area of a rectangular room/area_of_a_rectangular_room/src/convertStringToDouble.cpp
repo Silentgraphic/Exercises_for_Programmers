@@ -1,6 +1,6 @@
 #include "convertStringToDouble.h"
 
-double convertStringToInt(std::string& valueToConvert)
+double convertStringToDouble(std::string& valueToConvert)
 {
 	return std::stod(valueToConvert);
 }
