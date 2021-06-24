@@ -6,6 +6,8 @@
 #include "pch.h"
 #include "Rectangle.h"
 #include "convert_to_meters.h"
+#include "string"
+#include "convertStringToDouble.h"
 
 namespace RectangleObject
 {
@@ -37,5 +39,20 @@ namespace ConvertToMeters
 		double testLengthInFeet = 12.5;
 		double testLengthInMeters = convertToMeters(testLengthInFeet);
 		EXPECT_FLOAT_EQ(testLengthInMeters, 3.81);
+	}
+}
+
+namespace StringToDouble
+{
+	TEST(StringToDouble, ExpectedWholeDoubleToBeReturned)
+	{
+		std::string intAsString = "1.0";
+		EXPECT_FLOAT_EQ(convertStringToInt(intAsString), 1.0);
+	}
+
+	TEST(StringToDouble, ExpectedDoubleToBeReturned)
+	{
+		std::string intAsString = "1.1";
+		EXPECT_FLOAT_EQ(convertStringToInt(intAsString), 1.1);
 	}
 }
