@@ -145,11 +145,13 @@
     <ClCompile Include="src\convertStringToDouble.cpp" />
     <ClCompile Include="src\convert_to_meters.cpp" />
     <ClCompile Include="src\Rectangle.cpp" />
+    <ClCompile Include="src\userPrompt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\convertStringToDouble.h" />
     <ClInclude Include="src\convert_to_meters.h" />
     <ClInclude Include="src\Rectangle.h" />
+    <ClInclude Include="src\userPrompt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
