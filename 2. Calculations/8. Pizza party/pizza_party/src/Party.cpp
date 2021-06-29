@@ -12,3 +12,7 @@ int* Party::dividePizza()
 {
 	return nullptr;
 }
+
+void Party::checkIfEven()
+{
+}

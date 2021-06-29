@@ -7,4 +7,7 @@ public:
 	void setAmountOfPeople(int amountOfPeople);
 	int* dividePizza();
 private:
+	int amountOfPizza;
+	int amountOfPeople;
+	void checkIfEven();
 };
