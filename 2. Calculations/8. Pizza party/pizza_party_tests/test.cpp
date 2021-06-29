@@ -15,20 +15,21 @@ namespace PartyClass
 	};
 	TEST_F(PartyTest, DivideThePizzaUpExpectCorrectAmount)
 	{
-		int* pizzaSlicesTest = party_.dividePizza();
-		EXPECT_EQ(pizzaSlicesTest[0], 2);
+		int* pizzaSlices = party_.dividePizza();
+		int amountOfPizzaSlices = pizzaSlices[0];
+		EXPECT_EQ(amountOfPizzaSlices, 2);
 	}
 
 	TEST_F(PartyTest, DivideThePizzaUpExpectNoLeftOvers)
 	{
-		int* pizzaSlicesTest = party_.dividePizza();
-		EXPECT_EQ(pizzaSlicesTest[1], 0);
+		int* pizzaSlices = party_.dividePizza();
+		EXPECT_EQ(pizzaSlices[1], 0);
 	}
 
 	TEST_F(PartyTest, DivideThePizzaUpExpecEvenAmount)
 	{
-		int* pizzaSlicesTest = party_.dividePizza();
-		int parity = pizzaSlicesTest[0] % 2;
+		int* pizzaSlices = party_.dividePizza();
+		int parity = pizzaSlices[0] % 2;
 		EXPECT_EQ(parity, 0);
 	}
 }
