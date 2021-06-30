@@ -1,5 +1,8 @@
+#include <string>
+
 #include "pch.h"
 #include "Party.h"
+#include "User_prompt.h"
 
 namespace PartyClass
 {
@@ -49,5 +52,39 @@ namespace PartyClass
 		int* pizzaSlices = party2_.dividePizza();
 		int leftoverPizzaSlices = pizzaSlices[1];
 		EXPECT_EQ(leftoverPizzaSlices, 7);
+	}
+}
+
+namespace GetUserIntput
+{
+	const std::string testString = "Foo";
+	std::string prompt = "What is foo?\n";
+
+	TEST(GetUserInput, ExpectAPromtForUser)
+	{
+		std::stringstream fakeInput;
+		std::stringstream output;
+
+		UserInput testUserInput(fakeInput, output);
+
+		testUserInput.promptUser<std::string>(prompt);
+
+		std::string expectedOutput = "What is foo?\n";
+
+		EXPECT_EQ(expectedOutput, output.str());
+	}
+
+	TEST(GetUserInput, ReturnsInputString)
+	{
+		std::stringstream fakeInput;
+		std::stringstream output;
+
+		UserInput testUserInput(fakeInput, output);
+
+		fakeInput << testString;
+
+		std::string returnedString = testUserInput.promptUser<std::string>(prompt);
+
+		EXPECT_EQ(returnedString, testString);
 	}
 }
