@@ -9,5 +9,5 @@ public:
 private:
 	int amountOfPizza;
 	int amountOfPeople;
-	void checkIfEven();
+	const int slicesPerPizza = 8;
 };
