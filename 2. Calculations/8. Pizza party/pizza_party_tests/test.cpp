@@ -65,9 +65,11 @@ namespace GetUserIntput
 		std::stringstream fakeInput;
 		std::stringstream output;
 
-		UserInput testUserInput(fakeInput, output);
+		UserInput<std::string> testUserInput(fakeInput, output);
 
-		testUserInput.promptUser<std::string>(prompt);
+		fakeInput << testString;
+
+		testUserInput.promptUser(prompt);
 
 		std::string expectedOutput = "What is foo?\n";
 
@@ -79,11 +81,11 @@ namespace GetUserIntput
 		std::stringstream fakeInput;
 		std::stringstream output;
 
-		UserInput testUserInput(fakeInput, output);
+		UserInput<std::string> testUserInput(fakeInput, output);
 
 		fakeInput << testString;
 
-		std::string returnedString = testUserInput.promptUser<std::string>(prompt);
+		std::string returnedString = testUserInput.promptUser(prompt);
 
 		EXPECT_EQ(returnedString, testString);
 	}
