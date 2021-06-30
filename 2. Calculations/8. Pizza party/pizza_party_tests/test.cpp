@@ -1,8 +1,10 @@
 #include <string>
+#include <map>
 
 #include "pch.h"
 #include "Party.h"
 #include "User_prompt.h"
+#include "String_interpolation.h"
 
 namespace PartyClass
 {
@@ -88,5 +90,42 @@ namespace GetUserIntput
 		std::string returnedString = testUserInput.promptUser(prompt);
 
 		EXPECT_EQ(returnedString, testString);
+	}
+}
+
+namespace StringInterpolation
+{
+	const std::map<std::string, std::string> testSubStrings = { {"foo" , "Foo"},{"bar", "Bar"} };
+	std::string testSingleMarkerString = "What is foo?";
+	std::string testDoubleMarkerString = "What is foo bar?";
+
+	TEST(StringInterpolation, NoMarkerInFullString)
+	{
+		std::string testStringNoMarker = "What is ?";
+		StringInter testStringInterpolation;
+
+		EXPECT_THROW(testStringInterpolation.interpolateString(testStringNoMarker, testSubStrings), std::invalid_argument);
+	}
+
+	TEST(StringInterpolation, ReturnsStringWithSingleStringInput)
+	{
+		std::string expectedString = "What is Foo?";
+
+		StringInter testStringInterpolation;
+
+		std::string returnedString = testStringInterpolation.interpolateString(testSingleMarkerString, testSubStrings);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+
+	TEST(StringInterpolation, ReturnsStringWithMultipleStringInput)
+	{
+		std::string expectedString = "What is Foo Bar?";
+
+		StringInter testStringInterpolation;
+
+		std::string returnedString = testStringInterpolation.interpolateString(testDoubleMarkerString, testSubStrings);
+
+		EXPECT_EQ(expectedString, returnedString);
 	}
 }
