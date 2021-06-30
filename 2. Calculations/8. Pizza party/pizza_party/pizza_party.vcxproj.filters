@@ -26,5 +26,11 @@
     <ClInclude Include="src\Party.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\User_prompt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\User_prompt_base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

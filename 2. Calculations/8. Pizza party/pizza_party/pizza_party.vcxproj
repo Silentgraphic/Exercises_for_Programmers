@@ -143,7 +143,9 @@
     <ClCompile Include="src\pizza_party.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\User_prompt_base.h" />
     <ClInclude Include="src\Party.h" />
+    <ClInclude Include="src\User_prompt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
