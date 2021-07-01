@@ -141,10 +141,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\consoleOutput.cpp" />
     <ClCompile Include="src\Party.cpp" />
     <ClCompile Include="src\pizza_party.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\consoleOutput.h" />
     <ClInclude Include="src\String_interpolation.h" />
     <ClInclude Include="src\User_prompt_base.h" />
     <ClInclude Include="src\Party.h" />
