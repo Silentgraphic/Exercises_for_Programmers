@@ -104,7 +104,7 @@ namespace StringInterpolation
 		std::string testStringNoMarker = "What is ?";
 		StringInter testStringInterpolation;
 
-		EXPECT_THROW(testStringInterpolation.interpolateString(testStringNoMarker, testSubStrings), std::invalid_argument);
+		EXPECT_THROW(testStringInterpolation.interpolateString<std::string>(testStringNoMarker, testSubStrings), std::invalid_argument);
 	}
 
 	TEST(StringInterpolation, ReturnsStringWithSingleStringInput)
@@ -113,7 +113,7 @@ namespace StringInterpolation
 
 		StringInter testStringInterpolation;
 
-		std::string returnedString = testStringInterpolation.interpolateString(testSingleMarkerString, testSubStrings);
+		std::string returnedString = testStringInterpolation.interpolateString<std::string>(testSingleMarkerString, testSubStrings);
 
 		EXPECT_EQ(expectedString, returnedString);
 	}
@@ -124,7 +124,7 @@ namespace StringInterpolation
 
 		StringInter testStringInterpolation;
 
-		std::string returnedString = testStringInterpolation.interpolateString(testDoubleMarkerString, testSubStrings);
+		std::string returnedString = testStringInterpolation.interpolateString<std::string>(testDoubleMarkerString, testSubStrings);
 
 		EXPECT_EQ(expectedString, returnedString);
 	}
