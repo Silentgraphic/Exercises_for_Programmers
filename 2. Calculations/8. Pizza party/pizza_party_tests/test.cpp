@@ -98,20 +98,18 @@ namespace StringInterpolation
 	const std::map<std::string, std::string> testSubStrings = { {"foo" , "Foo"},{"bar", "Bar"} };
 	std::string testSingleMarkerString = "What is foo?";
 	std::string testDoubleMarkerString = "What is foo bar?";
+	StringInter testStringInterpolation;
 
 	TEST(StringInterpolation, NoMarkerInFullString)
 	{
 		std::string testStringNoMarker = "What is ?";
-		StringInter testStringInterpolation;
 
 		EXPECT_THROW(testStringInterpolation.interpolateString<std::string>(testStringNoMarker, testSubStrings), std::invalid_argument);
 	}
 
 	TEST(StringInterpolation, ReturnsStringWithSingleStringInput)
 	{
-		std::string expectedString = "What is Foo?";
-
-		StringInter testStringInterpolation;
+		const std::string expectedString = "What is Foo?";
 
 		std::string returnedString = testStringInterpolation.interpolateString<std::string>(testSingleMarkerString, testSubStrings);
 
@@ -120,9 +118,7 @@ namespace StringInterpolation
 
 	TEST(StringInterpolation, ReturnsStringWithMultipleStringInput)
 	{
-		std::string expectedString = "What is Foo Bar?";
-
-		StringInter testStringInterpolation;
+		const std::string expectedString = "What is Foo Bar?";
 
 		std::string returnedString = testStringInterpolation.interpolateString<std::string>(testDoubleMarkerString, testSubStrings);
 
