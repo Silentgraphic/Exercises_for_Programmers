@@ -32,5 +32,8 @@
     <ClInclude Include="src\User_prompt_base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\String_interpolation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
