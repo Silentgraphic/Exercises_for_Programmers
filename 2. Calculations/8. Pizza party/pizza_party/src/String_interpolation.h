@@ -15,7 +15,7 @@ public:
 			counter++;
 			rsize_t pos;
 
-			pos = fullString.find(marker);
+			pos = fullString.find("{" + marker + "}");
 			if (pos == std::string::npos)
 			{
 				if (counter == subStrings.size())
@@ -32,13 +32,13 @@ public:
 
 				//split into the rest of the string
 				std::string subStringSplit;
-				subStringSplit = fullString.substr(pos + replacementWord.size(), fullString.size());
+				subStringSplit = fullString.substr(pos + replacementWord.size() + 2, fullString.size());
 
 				//find the marker in the fullstring and replace it
 				fullString = fullString.replace(pos, fullString.size(), subStringElement.str());
 				fullString += subStringSplit;
 
-				pos = fullString.find(marker);
+				pos = fullString.find("{" + marker + "}");
 			}
 		}
 		return fullString;

@@ -96,8 +96,8 @@ namespace GetUserIntput
 namespace StringInterpolation
 {
 	const std::map<std::string, std::string> testSubStrings = { {"foo" , "Foo"},{"bar", "Bar"} };
-	std::string testSingleMarkerString = "What is foo?";
-	std::string testDoubleMarkerString = "What is foo bar?";
+	std::string testSingleMarkerString = "What is {foo}?";
+	std::string testDoubleMarkerString = "What is {foo} {bar}?";
 	StringInter testStringInterpolation;
 
 	TEST(StringInterpolation, NoMarkerInFullString)
