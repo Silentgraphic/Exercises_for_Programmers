@@ -23,7 +23,7 @@ int main()
 	int slicesPerPerson = slices[0];
 	int leftOvers = slices[1];
 
-	std::string outputMessage = "{people} people with {pizza} pizzas\nEach person gets {slicesPerPerson} Pizzas\nThere are {leftOvers} slices leftover\n";
+	std::string outputMessage = "{people} people with {pizza} pizzas\nEach person gets {slicesPerPerson} pieces of pizzas\nThere are {leftOvers} slices leftover\n";
 
 	const std::map<std::string, int> subStrings{
 		{"people", amountOfPeople},
@@ -35,4 +35,5 @@ int main()
 	outputMessage = stringInter.interpolateString<int>(outputMessage, subStrings);
 
 	consoleOutput(std::cout, outputMessage);
+	std::cin.get();
 }
