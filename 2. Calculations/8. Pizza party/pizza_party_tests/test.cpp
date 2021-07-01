@@ -96,6 +96,7 @@ namespace GetUserIntput
 namespace StringInterpolation
 {
 	const std::map<std::string, std::string> testSubStrings = { {"foo" , "Foo"},{"bar", "Bar"} };
+	const std::map<std::string, int> testSubInt = { {"foo" , 1},{"bar", 2} };
 	std::string testSingleMarkerString = "What is {foo}?";
 	std::string testDoubleMarkerString = "What is {foo} {bar}?";
 	StringInter testStringInterpolation;
@@ -121,6 +122,24 @@ namespace StringInterpolation
 		const std::string expectedString = "What is Foo Bar?";
 
 		std::string returnedString = testStringInterpolation.interpolateString<std::string>(testDoubleMarkerString, testSubStrings);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+
+	TEST(StringInterpolation, ReturnsStringWithSingleIntInput)
+	{
+		const std::string expectedString = "What is 1?";
+
+		std::string returnedString = testStringInterpolation.interpolateString<int>(testSingleMarkerString, testSubInt);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+
+	TEST(StringInterpolation, ReturnsStringWithMultipleIntInput)
+	{
+		const std::string expectedString = "What is 1 2?";
+
+		std::string returnedString = testStringInterpolation.interpolateString<int>(testDoubleMarkerString, testSubInt);
 
 		EXPECT_EQ(expectedString, returnedString);
 	}
