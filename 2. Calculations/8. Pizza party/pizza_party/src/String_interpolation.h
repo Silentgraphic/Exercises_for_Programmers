@@ -12,6 +12,7 @@ public:
 		rsize_t counter = 0;
 		for (const auto& [marker, replacementWord] : subStrings)
 		{
+			std::string word;
 			counter++;
 			rsize_t pos;
 
@@ -32,7 +33,7 @@ public:
 
 				//split into the rest of the string
 				std::string subStringSplit;
-				subStringSplit = fullString.substr(pos + replacementWord.size() + 2, fullString.size());
+				subStringSplit = fullString.substr(pos + marker.size() + 2, fullString.size());
 
 				//find the marker in the fullstring and replace it
 				fullString = fullString.replace(pos, fullString.size(), subStringElement.str());
