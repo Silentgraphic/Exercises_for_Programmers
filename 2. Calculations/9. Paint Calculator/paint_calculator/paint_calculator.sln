@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "paint_calculator", "paint_calculator.vcxproj", "{04990752-9CE8-4E18-B901-7EEDB00DAED1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "google_test_lib", "..\google_test_lib\google_test_lib.vcxproj", "{78B78696-501D-4C40-ABBC-61708C288E64}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "paint_calculator_tests", "..\paint_calculator_tests\paint_calculator_tests.vcxproj", "{F1B70203-D304-4E75-A03C-6EFD111C9977}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +25,22 @@ Global
 		{04990752-9CE8-4E18-B901-7EEDB00DAED1}.Release|x64.Build.0 = Release|x64
 		{04990752-9CE8-4E18-B901-7EEDB00DAED1}.Release|x86.ActiveCfg = Release|Win32
 		{04990752-9CE8-4E18-B901-7EEDB00DAED1}.Release|x86.Build.0 = Release|Win32
+		{78B78696-501D-4C40-ABBC-61708C288E64}.Debug|x64.ActiveCfg = Debug|x64
+		{78B78696-501D-4C40-ABBC-61708C288E64}.Debug|x64.Build.0 = Debug|x64
+		{78B78696-501D-4C40-ABBC-61708C288E64}.Debug|x86.ActiveCfg = Debug|Win32
+		{78B78696-501D-4C40-ABBC-61708C288E64}.Debug|x86.Build.0 = Debug|Win32
+		{78B78696-501D-4C40-ABBC-61708C288E64}.Release|x64.ActiveCfg = Release|x64
+		{78B78696-501D-4C40-ABBC-61708C288E64}.Release|x64.Build.0 = Release|x64
+		{78B78696-501D-4C40-ABBC-61708C288E64}.Release|x86.ActiveCfg = Release|Win32
+		{78B78696-501D-4C40-ABBC-61708C288E64}.Release|x86.Build.0 = Release|Win32
+		{F1B70203-D304-4E75-A03C-6EFD111C9977}.Debug|x64.ActiveCfg = Debug|x64
+		{F1B70203-D304-4E75-A03C-6EFD111C9977}.Debug|x64.Build.0 = Debug|x64
+		{F1B70203-D304-4E75-A03C-6EFD111C9977}.Debug|x86.ActiveCfg = Debug|Win32
+		{F1B70203-D304-4E75-A03C-6EFD111C9977}.Debug|x86.Build.0 = Debug|Win32
+		{F1B70203-D304-4E75-A03C-6EFD111C9977}.Release|x64.ActiveCfg = Release|x64
+		{F1B70203-D304-4E75-A03C-6EFD111C9977}.Release|x64.Build.0 = Release|x64
+		{F1B70203-D304-4E75-A03C-6EFD111C9977}.Release|x86.ActiveCfg = Release|Win32
+		{F1B70203-D304-4E75-A03C-6EFD111C9977}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
