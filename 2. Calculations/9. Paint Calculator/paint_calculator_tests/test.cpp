@@ -44,3 +44,39 @@ namespace RectangleObject
 		EXPECT_EQ(testRectangle.calculateArea(), 276);
 	}
 };
+
+namespace GetUserIntput
+{
+	const std::string testString = "Foo";
+	std::string prompt = "What is foo?\n";
+
+	TEST(GetUserInput, ExpectAPromtForUser)
+	{
+		std::stringstream fakeInput;
+		std::stringstream output;
+
+		UserInput<std::string> testUserInput(fakeInput, output);
+
+		fakeInput << testString;
+
+		testUserInput.promptUser(prompt);
+
+		std::string expectedOutput = "What is foo?\n";
+
+		EXPECT_EQ(expectedOutput, output.str());
+	}
+
+	TEST(GetUserInput, ReturnsInputString)
+	{
+		std::stringstream fakeInput;
+		std::stringstream output;
+
+		UserInput<std::string> testUserInput(fakeInput, output);
+
+		fakeInput << testString;
+
+		std::string returnedString = testUserInput.promptUser(prompt);
+
+		EXPECT_EQ(returnedString, testString);
+	}
+}
