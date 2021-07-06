@@ -3,6 +3,7 @@
 #include <string>
 
 #include"PaintPerAreaCalculator.h"
+#include "Rectangle.h"
 
 namespace PaintPerAreaCalculatorClass
 {
@@ -27,3 +28,19 @@ namespace PaintPerAreaCalculatorClass
 		EXPECT_EQ(paint1_.getGallonsNeeded(), 2);
 	}
 }
+
+namespace RectangleObject
+{
+	TEST(RectangleObject, CalculateAreaMethod)
+	{
+		Rectangle testRectangle;
+
+		float testLength = 23.0;
+		float testWidth = 12.0;
+
+		testRectangle.setLength(testLength);
+		testRectangle.setWidth(testWidth);
+
+		EXPECT_EQ(testRectangle.calculateArea(), 276);
+	}
+};
