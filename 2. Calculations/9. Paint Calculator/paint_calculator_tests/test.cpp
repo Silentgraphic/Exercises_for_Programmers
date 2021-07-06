@@ -10,7 +10,7 @@ namespace PaintPerAreaCalculatorClass
 	protected:
 		void SetUp() override
 		{
-			paint1_.setAreaInFeet(350);
+			paint1_.setAreaInFeet(350.0);
 		}
 
 		PaintPerAreaCalculator paint1_;

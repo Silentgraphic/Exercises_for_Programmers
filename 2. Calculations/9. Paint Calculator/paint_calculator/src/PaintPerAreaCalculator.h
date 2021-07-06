@@ -2,7 +2,7 @@
 class PaintPerAreaCalculator
 {
 public:
-	void setAreaInFeet(int areaInFeet);
+	void setAreaInFeet(float areaInFeet);
 	int getGallonsNeeded();
 	void calculateGallons();
 private:

@@ -1,6 +1,6 @@
 #include "PaintPerAreaCalculator.h"
 
-void PaintPerAreaCalculator::setAreaInFeet(int areaInFeet)
+void PaintPerAreaCalculator::setAreaInFeet(float areaInFeet)
 {
 }
 
