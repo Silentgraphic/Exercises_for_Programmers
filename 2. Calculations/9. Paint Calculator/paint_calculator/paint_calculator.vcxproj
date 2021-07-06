@@ -26,6 +26,8 @@
   <ItemGroup>
     <ClInclude Include="src\PaintPerAreaCalculator.h" />
     <ClInclude Include="src\Rectangle.h" />
+    <ClInclude Include="src\User_prompt.h" />
+    <ClInclude Include="src\User_prompt_base.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

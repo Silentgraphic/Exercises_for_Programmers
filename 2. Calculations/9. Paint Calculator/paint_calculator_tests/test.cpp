@@ -4,6 +4,7 @@
 
 #include"PaintPerAreaCalculator.h"
 #include "Rectangle.h"
+#include "User_prompt.h"
 
 namespace PaintPerAreaCalculatorClass
 {
