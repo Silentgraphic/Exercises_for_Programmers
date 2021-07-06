@@ -1,6 +1,23 @@
 #include "pch.h"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+#include <string>
+
+#include"PaintPerAreaCalculator.h"
+
+namespace PaintPerAreaCalculatorClass
+{
+	class  PaintPerAreaCalculatorTest : public ::testing::Test {
+	protected:
+		void SetUp() override
+		{
+			paint1_.setAreaInFeet(350);
+		}
+
+		PaintPerAreaCalculator paint1_;
+	};
+	TEST_F(PaintPerAreaCalculatorTest, Expect2Gallons)
+	{
+		paint1_.calculateGallons();
+		EXPECT_EQ(paint1_.getGallonsNeeded(), 2);
+	}
 }

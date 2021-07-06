@@ -18,5 +18,13 @@
     <ClCompile Include="src\paint_calculator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\PaintPerAreaCalculator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\PaintPerAreaCalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

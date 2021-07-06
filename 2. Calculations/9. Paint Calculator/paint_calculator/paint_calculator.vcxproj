@@ -19,7 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\PaintPerAreaCalculator.cpp" />
     <ClCompile Include="src\paint_calculator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\PaintPerAreaCalculator.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
