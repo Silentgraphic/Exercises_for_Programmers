@@ -1,4 +1,8 @@
 #pragma once
+#include<cmath>
+#include <exception>
+#include <iostream>
+
 class PaintPerAreaCalculator
 {
 public:
@@ -6,7 +10,8 @@ public:
 	int getGallonsNeeded();
 	void calculateGallons();
 private:
-	int gallonsNeeded;
-	int areaInFeet;
-	const int conversionRateinFeet = 350;
+	int gallonsNeeded = NAN;
+	int areaInFeet = NAN;
+	const float conversionRateinFeet = 350.0;
+	int roundUpToNearestGallon(float paint);
 };
