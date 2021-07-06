@@ -21,9 +21,11 @@
   <ItemGroup>
     <ClCompile Include="src\PaintPerAreaCalculator.cpp" />
     <ClCompile Include="src\paint_calculator.cpp" />
+    <ClCompile Include="src\Rectangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\PaintPerAreaCalculator.h" />
+    <ClInclude Include="src\Rectangle.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
