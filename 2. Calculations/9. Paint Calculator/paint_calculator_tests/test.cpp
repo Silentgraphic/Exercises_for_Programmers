@@ -10,11 +10,17 @@ namespace PaintPerAreaCalculatorClass
 	protected:
 		void SetUp() override
 		{
-			paint1_.setAreaInFeet(350.0);
+			paint1_.setAreaInFeet(360.0);
 		}
 
 		PaintPerAreaCalculator paint1_;
+		PaintPerAreaCalculator paint2_;
 	};
+
+	TEST_F(PaintPerAreaCalculatorTest, ExpectErrorWithNoArea)
+	{
+		EXPECT_ANY_THROW(paint2_.calculateGallons());
+	}
 	TEST_F(PaintPerAreaCalculatorTest, Expect2Gallons)
 	{
 		paint1_.calculateGallons();
