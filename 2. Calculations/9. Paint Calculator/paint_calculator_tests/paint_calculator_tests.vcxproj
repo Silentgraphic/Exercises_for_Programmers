@@ -104,7 +104,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)/Debug;E:\programming\efp\2. Calculations\9. Paint Calculator\paint_calculator_tests\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>PaintPerAreaCalculator.obj;Rectangle.obj;ValidateFloat.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>PaintPerAreaCalculator.obj;Rectangle.obj;ValidateWholeFeet.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -122,7 +122,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)/Debug;E:\programming\efp\2. Calculations\9. Paint Calculator\paint_calculator_tests\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>PaintPerAreaCalculator.obj;Rectangle.obj;ValidateFloat.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>PaintPerAreaCalculator.obj;Rectangle.obj;ValidateWholeFeet.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

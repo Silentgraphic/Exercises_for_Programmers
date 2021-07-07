@@ -5,7 +5,7 @@
 #include"PaintPerAreaCalculator.h"
 #include "Rectangle.h"
 #include "User_prompt.h"
-#include "ValidateFloat.h"
+#include "ValidateWholeFeet.h"
 
 namespace PaintPerAreaCalculatorClass
 {
@@ -49,26 +49,26 @@ namespace RectangleObject
 
 namespace ValidateFloatClass
 {
-	ValidateFloat validateFloatTest;
+	ValidateWholeFeet validateTest;
 	const std::string testString = "foo";
 	TEST(ValidateFloatClass, DoesNotThrowException)
 	{
-		std::string testFloatAsString = "1.1";
-		EXPECT_NO_THROW(validateFloatTest.ValidateInput(testFloatAsString));
+		std::string wholeNumber = "1";
+		EXPECT_NO_THROW(validateTest.ValidateInput(wholeNumber));
 	}
 	TEST(ValidateFloatClass, DoesThrowException)
 	{
-		EXPECT_ANY_THROW(validateFloatTest.ValidateInput(testString));
+		EXPECT_ANY_THROW(validateTest.ValidateInput(testString));
 	}
 	TEST(ValidateFloatClass, ThrowsInvalidWholeFeet)
 	{
 		try
 		{
-			validateFloatTest.ValidateInput(testString);
+			validateTest.ValidateInput(testString);
 		}
 		catch (std::runtime_error& err)
 		{
-			std::string expectedString = "Invalid please enter a whole foot: ";
+			std::string expectedString = "Invalid please enter number: ";
 			EXPECT_EQ(expectedString, err.what());
 		}
 	}
@@ -77,17 +77,30 @@ namespace ValidateFloatClass
 namespace GetUserIntput
 {
 	std::string prompt = "What is foo?\n";
-	ValidateFloat validateFloat;
+	ValidateWholeFeet validateWholeFeet;
 	const float testFloat = 1.1;
-	TEST(GetUserInput, ReturnsInvalid)
+	TEST(GetUserInput, ReturnsInvalidforString)
 	{
 		std::stringstream fakeInput;
 		std::stringstream output;
 		const std::string testString = "Foo";
 
-		UserInput<int> testUserInput(fakeInput, output, validateFloat);
+		UserInput<int> testUserInput(fakeInput, output, validateWholeFeet);
 
-		fakeInput << testString << std::endl << 1.0;
+		fakeInput << testString << std::endl << 1;
+
+		testUserInput.promptUser("");
+
+		EXPECT_EQ("Invalid please enter number: ", output.str());
+	}
+	TEST(GetUserInput, ReturnsInvalidForWholeNum)
+	{
+		std::stringstream fakeInput;
+		std::stringstream output;
+
+		UserInput<int> testUserInput(fakeInput, output, validateWholeFeet);
+
+		fakeInput << testFloat << std::endl << 1;
 
 		testUserInput.promptUser("");
 
@@ -98,9 +111,9 @@ namespace GetUserIntput
 		std::stringstream fakeInput;
 		std::stringstream output;
 
-		UserInput<std::string> testUserInput(fakeInput, output, validateFloat);
+		UserInput<std::string> testUserInput(fakeInput, output, validateWholeFeet);
 
-		fakeInput << testFloat;
+		fakeInput << "1";
 
 		testUserInput.promptUser(prompt);
 
@@ -112,13 +125,13 @@ namespace GetUserIntput
 		std::stringstream fakeInput;
 		std::stringstream output;
 
-		UserInput<std::string> testUserInput(fakeInput, output, validateFloat);
+		UserInput<std::string> testUserInput(fakeInput, output, validateWholeFeet);
 
-		fakeInput << testFloat;
+		fakeInput << "1";
 
 		std::string returnedString = testUserInput.promptUser(prompt);
-		std::string returnedFloatAsString = "1.1";
+		std::string returnedWholeNumberAsString = "1";
 
-		EXPECT_EQ(returnedString, returnedFloatAsString);
+		EXPECT_EQ(returnedString, returnedWholeNumberAsString);
 	}
 }
