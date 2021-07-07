@@ -80,4 +80,19 @@ namespace GetUserIntput
 
 		EXPECT_EQ(returnedString, testString);
 	}
+	TEST(GetUserInput, ReturnsInvalid)
+	{
+		std::stringstream fakeInput;
+		std::stringstream output;
+
+		UserInput<int> testUserInput(fakeInput, output);
+
+		float testFloat = 1.1;
+
+		fakeInput << testString << std::endl << 1;
+
+		testUserInput.promptUser("");
+
+		EXPECT_EQ("Invalid please enter a whole foot: ", output.str());
+	}
 }
