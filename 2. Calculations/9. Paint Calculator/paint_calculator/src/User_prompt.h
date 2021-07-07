@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <sstream>
+#include <cmath>
 #include "User_prompt_base.h"
 
 template <typename T>
@@ -24,7 +25,6 @@ public:
 private:
 	std::istream& inputStream;
 	std::ostream& outputStream;
-	const std::string invalidInputMessage = "Invalid please enter a whole foot";
 	T getValidatedUserInput()
 	{
 		std::string strInput = "";
@@ -32,13 +32,30 @@ private:
 		do
 		{
 			std::getline(inputStream, strInput);
-			std::stringstream myStream(strInput);
-			if ((myStream >> userInput))
+			try
 			{
+				userInput = validateInput(strInput);
 				break;
 			}
-			outputStream << invalidInputMessage;
+			catch (std::runtime_error& err)
+			{
+				outputStream << err.what();
+			}
 		} while (true);
+
 		return userInput;
 	};
+	T validateInput(std::string stringInput)
+	{
+		T userInput;
+		std::stringstream myStream(stringInput);
+		if ((myStream >> userInput))
+		{
+			return userInput;
+		}
+		else
+		{
+			throw std::runtime_error("Invalid please enter a whole foot: ");
+		}
+	}
 };
