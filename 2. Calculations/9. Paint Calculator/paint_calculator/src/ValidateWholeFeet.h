@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 
-class ValidateFloat : public IValidateInput
+class ValidateWholeFeet : public IValidateInput
 {
 public:
 	void ValidateInput(std::string stringInput);

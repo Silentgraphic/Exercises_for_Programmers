@@ -24,7 +24,7 @@
     <ClCompile Include="src\Rectangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ValidateFloat.cpp">
+    <ClCompile Include="src\ValidateWholeFeet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClInclude Include="src\IValidateInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ValidateFloat.h">
+    <ClInclude Include="src\ValidateWholeFeet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
