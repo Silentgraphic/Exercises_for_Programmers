@@ -22,12 +22,15 @@
     <ClCompile Include="src\PaintPerAreaCalculator.cpp" />
     <ClCompile Include="src\paint_calculator.cpp" />
     <ClCompile Include="src\Rectangle.cpp" />
+    <ClCompile Include="src\ValidateFloat.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\IValidateInput.h" />
     <ClInclude Include="src\PaintPerAreaCalculator.h" />
     <ClInclude Include="src\Rectangle.h" />
     <ClInclude Include="src\User_prompt.h" />
     <ClInclude Include="src\User_prompt_base.h" />
+    <ClInclude Include="src\ValidateFloat.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

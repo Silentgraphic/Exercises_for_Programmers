@@ -3,15 +3,17 @@
 #include <sstream>
 #include <cmath>
 #include "User_prompt_base.h"
+#include "IValidateInput.h"
 
 template <typename T>
 class UserInput : public UserInputBase
 {
 public:
-	UserInput(std::istream& input, std::ostream& output) :
+	UserInput(std::istream& input, std::ostream& output, IValidateInput& inputValidator) :
 		UserInputBase(input, output),
 		inputStream(input),
-		outputStream(output)
+		outputStream(output),
+		inputValidator(inputValidator)
 	{
 	};
 
@@ -25,6 +27,7 @@ public:
 private:
 	std::istream& inputStream;
 	std::ostream& outputStream;
+	IValidateInput& inputValidator;
 	T getValidatedUserInput()
 	{
 		std::string strInput = "";
@@ -34,7 +37,7 @@ private:
 			std::getline(inputStream, strInput);
 			try
 			{
-				userInput = validateInput(strInput);
+				inputValidator.ValidateInput(strInput);
 				break;
 			}
 			catch (std::runtime_error& err)
@@ -42,20 +45,8 @@ private:
 				outputStream << err.what();
 			}
 		} while (true);
-
+		std::stringstream myStream(strInput);
+		myStream >> userInput;
 		return userInput;
 	};
-	T validateInput(std::string stringInput)
-	{
-		T userInput;
-		std::stringstream myStream(stringInput);
-		if ((myStream >> userInput))
-		{
-			return userInput;
-		}
-		else
-		{
-			throw std::runtime_error("Invalid please enter a whole foot: ");
-		}
-	}
 };
