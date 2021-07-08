@@ -60,7 +60,7 @@ namespace ValidateWholeFoot {
 			validateTest.ValidateInput(testString);
 		}
 		catch (std::runtime_error& err) {
-			std::string expectedString = "Invalid please enter number: ";
+			const std::string expectedString = "Invalid please enter number: ";
 			EXPECT_EQ(expectedString, err.what());
 		}
 	}
@@ -69,21 +69,29 @@ namespace ValidateWholeFoot {
 			validateTest.ValidateInput(decimalNumber);
 		}
 		catch (std::runtime_error& err) {
-			std::string expectedString = "Invalid please enter a whole foot: ";
+			const std::string expectedString = "Invalid please enter a whole foot: ";
 			EXPECT_EQ(expectedString, err.what());
 		}
 	}
 }
 
 namespace GetUserIntput {
-	std::string prompt = "What is foo?\n";
 	ValidateWholeFeet validateWholeFeet;
-	TEST(GetUserInput, ReturnsInvalidforString) {
-		std::stringstream fakeInput;
-		std::stringstream output;
-		const std::string testString = "Foo";
+	std::stringstream fakeInput;
+	std::stringstream output;
+	UserInput<std::string> testUserInput(fakeInput, output, validateWholeFeet);
 
-		UserInput<int> testUserInput(fakeInput, output, validateWholeFeet);
+	class  GetUserInputTest : public ::testing::Test {
+	protected:
+		void TearDown() override {
+			fakeInput.str("");
+			fakeInput.clear();
+			output.str("");
+			output.clear();
+		}
+	};
+	TEST_F(GetUserInputTest, ReturnsInvalidforString) {
+		const std::string testString = "Foo";
 
 		fakeInput << testString << std::endl << 1;
 
@@ -91,12 +99,8 @@ namespace GetUserIntput {
 
 		EXPECT_EQ("Invalid please enter number: ", output.str());
 	}
-	TEST(GetUserInput, ReturnsInvalidForWholeNum) {
-		std::stringstream fakeInput;
-		std::stringstream output;
+	TEST_F(GetUserInputTest, ReturnsInvalidForWholeNum) {
 		const float testFloat = 1.1;
-
-		UserInput<int> testUserInput(fakeInput, output, validateWholeFeet);
 
 		fakeInput << testFloat << std::endl << 1;
 
@@ -104,11 +108,8 @@ namespace GetUserIntput {
 
 		EXPECT_EQ("Invalid please enter a whole foot: ", output.str());
 	}
-	TEST(GetUserInput, ExpectAPromtForUser) {
-		std::stringstream fakeInput;
-		std::stringstream output;
-
-		UserInput<std::string> testUserInput(fakeInput, output, validateWholeFeet);
+	TEST_F(GetUserInputTest, ExpectAPromtForUser) {
+		const std::string prompt = "What is foo?\n";
 
 		fakeInput << "1";
 
@@ -116,16 +117,10 @@ namespace GetUserIntput {
 
 		EXPECT_EQ(prompt, output.str());
 	}
-
-	TEST(GetUserInput, ReturnsInputString) {
-		std::stringstream fakeInput;
-		std::stringstream output;
-
-		UserInput<std::string> testUserInput(fakeInput, output, validateWholeFeet);
-
+	TEST_F(GetUserInputTest, ReturnsInputString) {
 		fakeInput << "1";
 
-		std::string returnedString = testUserInput.promptUser(prompt);
+		std::string returnedString = testUserInput.promptUser("");
 		std::string returnedWholeNumberAsString = "1";
 
 		EXPECT_EQ(returnedString, returnedWholeNumberAsString);
