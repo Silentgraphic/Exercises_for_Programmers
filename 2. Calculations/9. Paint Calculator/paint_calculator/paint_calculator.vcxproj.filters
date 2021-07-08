@@ -47,5 +47,8 @@
     <ClInclude Include="src\ValidateWholeFeet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\String_interpolation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
