@@ -3,8 +3,7 @@
 #include <exception>
 #include <iostream>
 
-class PaintPerAreaCalculator
-{
+class PaintPerAreaCalculator {
 public:
 	void setAreaInFeet(float areaInFeet);
 	int getGallonsNeeded();

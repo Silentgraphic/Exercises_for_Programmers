@@ -7,12 +7,10 @@
 #include "User_prompt.h"
 #include "ValidateWholeFeet.h"
 
-namespace PaintPerAreaCalculatorClass
-{
+namespace PaintPerAreaCalculatorClass {
 	class  PaintPerAreaCalculatorTest : public ::testing::Test {
 	protected:
-		void SetUp() override
-		{
+		void SetUp() override {
 			paint1_.setAreaInFeet(360.0);
 		}
 
@@ -20,21 +18,17 @@ namespace PaintPerAreaCalculatorClass
 		PaintPerAreaCalculator paint2_;
 	};
 
-	TEST_F(PaintPerAreaCalculatorTest, ExpectErrorWithNoArea)
-	{
+	TEST_F(PaintPerAreaCalculatorTest, ExpectErrorWithNoArea) {
 		EXPECT_ANY_THROW(paint2_.calculateGallons());
 	}
-	TEST_F(PaintPerAreaCalculatorTest, Expect2Gallons)
-	{
+	TEST_F(PaintPerAreaCalculatorTest, Expect2Gallons) {
 		paint1_.calculateGallons();
 		EXPECT_EQ(paint1_.getGallonsNeeded(), 2);
 	}
 }
 
-namespace RectangleObject
-{
-	TEST(RectangleObject, CalculateAreaMethod)
-	{
+namespace RectangleObject {
+	TEST(RectangleObject, CalculateAreaMethod) {
 		Rectangle testRectangle;
 
 		float testLength = 23.0;
@@ -47,40 +41,31 @@ namespace RectangleObject
 	}
 };
 
-namespace ValidateFloatClass
-{
+namespace ValidateFloatClass {
 	ValidateWholeFeet validateTest;
 	const std::string testString = "foo";
-	TEST(ValidateFloatClass, DoesNotThrowException)
-	{
+	TEST(ValidateFloatClass, DoesNotThrowException) {
 		std::string wholeNumber = "1";
 		EXPECT_NO_THROW(validateTest.ValidateInput(wholeNumber));
 	}
-	TEST(ValidateFloatClass, DoesThrowException)
-	{
+	TEST(ValidateFloatClass, DoesThrowException) {
 		EXPECT_ANY_THROW(validateTest.ValidateInput(testString));
 	}
-	TEST(ValidateFloatClass, ThrowsInvalidWholeFeet)
-	{
-		try
-		{
+	TEST(ValidateFloatClass, ThrowsInvalidWholeFeet) {
+		try {
 			validateTest.ValidateInput(testString);
 		}
-		catch (std::runtime_error& err)
-		{
+		catch (std::runtime_error& err) {
 			std::string expectedString = "Invalid please enter number: ";
 			EXPECT_EQ(expectedString, err.what());
 		}
 	}
 }
 
-namespace GetUserIntput
-{
+namespace GetUserIntput {
 	std::string prompt = "What is foo?\n";
 	ValidateWholeFeet validateWholeFeet;
-	const float testFloat = 1.1;
-	TEST(GetUserInput, ReturnsInvalidforString)
-	{
+	TEST(GetUserInput, ReturnsInvalidforString) {
 		std::stringstream fakeInput;
 		std::stringstream output;
 		const std::string testString = "Foo";
@@ -93,10 +78,10 @@ namespace GetUserIntput
 
 		EXPECT_EQ("Invalid please enter number: ", output.str());
 	}
-	TEST(GetUserInput, ReturnsInvalidForWholeNum)
-	{
+	TEST(GetUserInput, ReturnsInvalidForWholeNum) {
 		std::stringstream fakeInput;
 		std::stringstream output;
+		const float testFloat = 1.1;
 
 		UserInput<int> testUserInput(fakeInput, output, validateWholeFeet);
 
@@ -106,8 +91,7 @@ namespace GetUserIntput
 
 		EXPECT_EQ("Invalid please enter a whole foot: ", output.str());
 	}
-	TEST(GetUserInput, ExpectAPromtForUser)
-	{
+	TEST(GetUserInput, ExpectAPromtForUser) {
 		std::stringstream fakeInput;
 		std::stringstream output;
 
@@ -120,8 +104,7 @@ namespace GetUserIntput
 		EXPECT_EQ(prompt, output.str());
 	}
 
-	TEST(GetUserInput, ReturnsInputString)
-	{
+	TEST(GetUserInput, ReturnsInputString) {
 		std::stringstream fakeInput;
 		std::stringstream output;
 

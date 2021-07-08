@@ -1,6 +1,5 @@
 #pragma once
-class Rectangle
-{
+class Rectangle {
 public:
 	Rectangle();
 	void setLength(float height);

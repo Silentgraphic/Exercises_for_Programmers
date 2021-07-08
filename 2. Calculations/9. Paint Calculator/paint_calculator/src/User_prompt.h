@@ -6,19 +6,16 @@
 #include "IValidateInput.h"
 
 template <typename T>
-class UserInput : public UserInputBase
-{
+class UserInput : public UserInputBase {
 public:
 	UserInput(std::istream& input, std::ostream& output, IValidateInput& inputValidator) :
 		UserInputBase(input, output),
 		inputStream(input),
 		outputStream(output),
-		inputValidator(inputValidator)
-	{
+		inputValidator(inputValidator) {
 	};
 
-	T promptUser(std::string prompt)
-	{
+	T promptUser(std::string prompt) {
 		T userInput;
 		outputStream << prompt;
 		userInput = getValidatedUserInput();
@@ -28,20 +25,16 @@ private:
 	std::istream& inputStream;
 	std::ostream& outputStream;
 	IValidateInput& inputValidator;
-	T getValidatedUserInput()
-	{
+	T getValidatedUserInput() {
 		std::string strInput = "";
 		T userInput;
-		do
-		{
+		do {
 			std::getline(inputStream, strInput);
-			try
-			{
+			try {
 				inputValidator.ValidateInput(strInput);
 				break;
 			}
-			catch (std::runtime_error& err)
-			{
+			catch (std::runtime_error& err) {
 				outputStream << err.what();
 			}
 		} while (true);

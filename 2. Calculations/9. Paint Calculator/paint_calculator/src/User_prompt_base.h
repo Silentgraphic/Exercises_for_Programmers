@@ -1,13 +1,11 @@
 #pragma once
 #include <string>
 
-class UserInputBase
-{
+class UserInputBase {
 public:
 	UserInputBase(std::istream& input, std::ostream& output) :
 		inputStream(input),
-		outputStream(output)
-	{
+		outputStream(output) {
 	};
 private:
 	std::istream& inputStream;
