@@ -99,7 +99,7 @@ namespace GetUserIntput {
 
 		EXPECT_EQ("Invalid please enter number: ", output.str());
 	}
-	TEST_F(GetUserInputTest, ReturnsInvalidForWholeNum) {
+	TEST_F(GetUserInputTest, ReturnsInvalidForNonWholeNum) {
 		const float testFloat = 1.1;
 
 		fakeInput << testFloat << std::endl << 1;
@@ -117,7 +117,7 @@ namespace GetUserIntput {
 
 		EXPECT_EQ(prompt, output.str());
 	}
-	TEST_F(GetUserInputTest, ReturnsInputString) {
+	TEST_F(GetUserInputTest, ReturnsWholeNumber) {
 		fakeInput << "1";
 
 		std::string returnedString = testUserInput.promptUser("");
