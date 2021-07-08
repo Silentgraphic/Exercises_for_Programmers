@@ -41,17 +41,17 @@ namespace RectangleObject {
 	}
 };
 
-namespace ValidateFloatClass {
+namespace ValidateWholeFoot {
 	ValidateWholeFeet validateTest;
 	const std::string testString = "foo";
-	TEST(ValidateFloatClass, DoesNotThrowException) {
-		std::string wholeNumber = "1";
+	const std::string wholeNumber = "1";
+	TEST(ValidateWholeFoot, DoesNotThrowException) {
 		EXPECT_NO_THROW(validateTest.ValidateInput(wholeNumber));
 	}
-	TEST(ValidateFloatClass, DoesThrowException) {
+	TEST(ValidateWholeFoot, DoesThrowExceptionForString) {
 		EXPECT_ANY_THROW(validateTest.ValidateInput(testString));
 	}
-	TEST(ValidateFloatClass, ThrowsInvalidWholeFeet) {
+	TEST(ValidateWholeFoot, ThrowsInvalidWholeFeet) {
 		try {
 			validateTest.ValidateInput(testString);
 		}
