@@ -45,18 +45,31 @@ namespace ValidateWholeFoot {
 	ValidateWholeFeet validateTest;
 	const std::string testString = "foo";
 	const std::string wholeNumber = "1";
+	const std::string decimalNumber = "1.1";
 	TEST(ValidateWholeFoot, DoesNotThrowException) {
 		EXPECT_NO_THROW(validateTest.ValidateInput(wholeNumber));
 	}
 	TEST(ValidateWholeFoot, DoesThrowExceptionForString) {
 		EXPECT_ANY_THROW(validateTest.ValidateInput(testString));
 	}
-	TEST(ValidateWholeFoot, ThrowsInvalidWholeFeet) {
+	TEST(ValidateWholeFoot, DoesThrowExceptionForDecimalPlace) {
+		EXPECT_ANY_THROW(validateTest.ValidateInput(decimalNumber));
+	}
+	TEST(ValidateWholeFoot, ThrowsInvalidForString) {
 		try {
 			validateTest.ValidateInput(testString);
 		}
 		catch (std::runtime_error& err) {
 			std::string expectedString = "Invalid please enter number: ";
+			EXPECT_EQ(expectedString, err.what());
+		}
+	}
+	TEST(ValidateWholeFoot, ThrowsInvalidDecimalPlace) {
+		try {
+			validateTest.ValidateInput(decimalNumber);
+		}
+		catch (std::runtime_error& err) {
+			std::string expectedString = "Invalid please enter a whole foot: ";
 			EXPECT_EQ(expectedString, err.what());
 		}
 	}
