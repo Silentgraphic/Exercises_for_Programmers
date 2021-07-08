@@ -1,7 +1,7 @@
 #include "ValidateWholeFeet.h"
 #include <cmath>
 
-void ValidateWholeFeet::ValidateInput(std::string stringInput) {
+void ValidateWholeFeet::ValidateInput(const std::string& stringInput) {
 	float userInput;
 	std::stringstream myStream(stringInput);
 	myStream >> userInput;

@@ -5,5 +5,5 @@
 
 class ValidateWholeFeet : public IValidateInput {
 public:
-	void ValidateInput(std::string stringInput);
+	void ValidateInput(const std::string& stringInput);
 };

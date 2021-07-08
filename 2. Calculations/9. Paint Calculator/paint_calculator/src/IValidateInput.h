@@ -2,5 +2,5 @@
 #include <string>
 class IValidateInput {
 public:
-	virtual void ValidateInput(std::string stringInput) = 0;
+	virtual void ValidateInput(const std::string& stringInput) = 0;
 };
