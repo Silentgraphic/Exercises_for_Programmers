@@ -3,30 +3,23 @@
 #include <sstream>
 #include <map>
 
-class StringInter
-{
+class StringInter {
 public:
 	template <typename T>
-	std::string interpolateString(std::string fullString, const std::map <std::string, T>& subStrings)
-	{
+	static std::string interpolateString(std::string fullString, const std::map <std::string, T>& subStrings) {
 		rsize_t counter = 0;
-		for (const auto& [marker, replacementWord] : subStrings)
-		{
+		for (const auto& [marker, replacementWord] : subStrings) {
 			std::string word;
 			counter++;
 			rsize_t pos;
 
 			pos = fullString.find("{" + marker + "}");
-			if (pos == std::string::npos)
-			{
-				if (counter == subStrings.size())
-				{
+			if (pos == std::string::npos) {
+				if (counter == subStrings.size()) {
 					throw std::invalid_argument("No string markers found");
 				}
 				continue;
-			}
-			else
-			{
+			} else {
 				//convert elements to a string
 				std::stringstream subStringElement{};
 				subStringElement << subStrings.at(marker);
