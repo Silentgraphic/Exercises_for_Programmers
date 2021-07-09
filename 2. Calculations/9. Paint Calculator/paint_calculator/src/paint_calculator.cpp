@@ -31,4 +31,6 @@ int main() {
 	};
 
 	std::cout << StringInter::interpolateString<float>("You will need {gallons} gallons \nTo cover {area} feet sq", subStrings) << std::endl;
+
+	std::cin.get();
 }
