@@ -1,6 +1,12 @@
-#include "pch.h"
+#include <iostream>
+#include <vector>
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+#include "pch.h"
+#include "USD.h"
+
+namespace USDTests {
+	USD usdTest((long int)2);
+	TEST(USDTest, ExpectConstructorToset) {
+		EXPECT_EQ(2, usdTest.twoSignificantDigits);
+	}
 }
