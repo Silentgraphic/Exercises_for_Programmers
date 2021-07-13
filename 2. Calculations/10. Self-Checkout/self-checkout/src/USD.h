@@ -1,10 +1,10 @@
 #pragma once
+#include<string>
 
 #include "ICurrency.h"
 
-class USD : public ICurrency {
-public:
+struct  USD : public ICurrency {
 	USD(const long int& priceInCents) :ICurrency(priceInCents) {};
 
-	float convertToDecimal();
+	std::string returnPresentableFormat();
 };

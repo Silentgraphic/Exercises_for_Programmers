@@ -1,11 +1,11 @@
 #pragma once
+#include <string>
 
-class ICurrency {
-public:
+struct ICurrency {
 	//Force all ICurrency inplemtations to have a value
 	ICurrency(const long int& currencyAsLongInt) :
 		twoSignificantDigits(currencyAsLongInt) {
 	};
 	long int twoSignificantDigits;
-	virtual float convertToDecimal() = 0;
+	virtual std::string returnPresentableFormat() = 0;
 };

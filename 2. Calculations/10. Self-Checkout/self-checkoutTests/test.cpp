@@ -14,10 +14,10 @@ namespace USDTests {
 }
 
 namespace ItemTests {
-	class MockCurrency : public ICurrency {
+	struct MockCurrency : public ICurrency {
 	public:
 		MockCurrency(const long int& priceInCents) : ICurrency(priceInCents) {};
-		MOCK_METHOD(float, convertToDecimal, ());
+		MOCK_METHOD(std::string, returnPresentableFormat, ());
 	};
 
 	TEST(ItemTests, TotalCalculatedIs2) {

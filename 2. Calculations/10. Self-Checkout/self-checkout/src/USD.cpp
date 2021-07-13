@@ -1,5 +1,7 @@
+#include <string>
+
 #include "USD.h"
 
-float USD::convertToDecimal() {
-	return 0.0f;
+std::string USD::returnPresentableFormat() {
+	return std::string();
 }
