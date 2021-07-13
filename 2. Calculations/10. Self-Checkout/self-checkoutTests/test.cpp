@@ -3,8 +3,9 @@
 
 #include "pch.h"
 #include "USD.h"
-#include "ICurrency.h"
 #include "Item.h"
+
+#include "MockClasses/MockCurrency.h"
 
 namespace USDTests {
 	USD usdTest((long int)2);
@@ -14,23 +15,17 @@ namespace USDTests {
 }
 
 namespace ItemTests {
-	struct MockCurrency : public ICurrency {
-	public:
-		MockCurrency(const long int& priceInCents) : ICurrency(priceInCents) {};
-		MOCK_METHOD(std::string, returnPresentableFormat, ());
-	};
-
 	TEST(ItemTests, TotalCalculatedIs2) {
-		Item testItem;
 		MockCurrency currency((long int)2);
-		testItem.calculateTotal(currency, 1);
+		Item testItem(currency);
+		testItem.calculateTotal(1);
 		EXPECT_EQ(2, testItem.total);
 	}
 
 	TEST(ItemTests, TotalCalculatedIs4) {
-		Item testItem;
 		MockCurrency currency((long int)2);
-		testItem.calculateTotal(currency, 2);
+		Item testItem(currency);
+		testItem.calculateTotal(2);
 		EXPECT_EQ(4, testItem.total);
 	}
 }

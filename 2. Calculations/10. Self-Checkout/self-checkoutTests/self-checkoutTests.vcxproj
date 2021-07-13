@@ -39,6 +39,7 @@
     <IncludePath>$(SolutionDir)\packages\gmock.1.10.0\lib\native\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClInclude Include="MockClasses\MockCurrency.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>

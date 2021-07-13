@@ -1,7 +1,6 @@
 #include "Item.h"
 
-void Item::calculateTotal(ICurrency& price, int quantity) {
-	this->priceTwoDecimals = price.twoSignificantDigits;
+void Item::calculateTotal(int quantity) {
 	this->quantity = quantity;
-	total = priceTwoDecimals * quantity;
+	total = price.twoSignificantDigits * quantity;
 }

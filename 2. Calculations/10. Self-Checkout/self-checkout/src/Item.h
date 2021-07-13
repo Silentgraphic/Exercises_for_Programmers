@@ -4,9 +4,12 @@
 
 class Item {
 public:
+	Item(ICurrency& price) :
+		price(price) {
+	};
 	float total;
-	void calculateTotal(ICurrency& price, int quantity);
+	void calculateTotal(int quantity);
 private:
-	long int priceTwoDecimals;
+	ICurrency& price;
 	int quantity;
 };
