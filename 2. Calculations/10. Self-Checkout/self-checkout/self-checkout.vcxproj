@@ -143,10 +143,12 @@
   <ItemGroup>
     <ClCompile Include="src\Item.cpp" />
     <ClCompile Include="src\self-checkout.cpp" />
+    <ClCompile Include="src\TaxCal.cpp" />
     <ClCompile Include="src\USD.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ICurrency.h" />
+    <ClInclude Include="src\IItem.h" />
     <ClInclude Include="src\Item.h" />
     <ClInclude Include="src\TaxCal.h" />
     <ClInclude Include="src\USD.h" />
