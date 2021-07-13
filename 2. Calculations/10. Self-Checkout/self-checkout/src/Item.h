@@ -7,7 +7,7 @@ public:
 	Item(ICurrency& price) :
 		price(price) {
 	};
-	float total;
+	unsigned long int totalPrice;
 	void calculateTotal(int quantity);
 private:
 	ICurrency& price;
