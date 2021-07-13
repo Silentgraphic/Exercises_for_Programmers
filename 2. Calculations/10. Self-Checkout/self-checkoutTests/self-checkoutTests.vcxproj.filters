@@ -10,6 +10,9 @@
     <ClInclude Include="MockClasses\MockCurrency.h">
       <Filter>MockClasses</Filter>
     </ClInclude>
+    <ClInclude Include="MockClasses\MockItem.h">
+      <Filter>MockClasses</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="MockClasses">

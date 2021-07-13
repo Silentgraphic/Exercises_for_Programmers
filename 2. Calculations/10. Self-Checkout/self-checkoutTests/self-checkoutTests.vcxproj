@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ClInclude Include="MockClasses\MockCurrency.h" />
+    <ClInclude Include="MockClasses\MockItem.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -89,7 +90,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Item.obj;USD.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Item.obj;USD.obj;TaxCal.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -107,7 +108,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Item.obj;USD.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Item.obj;USD.obj;TaxCal.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
