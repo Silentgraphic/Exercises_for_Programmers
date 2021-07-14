@@ -36,20 +36,20 @@ namespace TaxCalTests {
 	class  TaxCalTest : public ::testing::Test {
 	protected:
 		void SetUp() override {
-			MockItem item1;
-			MockItem item2;
-			MockItem item3;
-			item1.totalPrice = 1000;
-			item2.totalPrice = 1000;
-			item3.totalPrice = 1000;
 			mockItems.push_back(&item1);
 			mockItems.push_back(&item2);
 			mockItems.push_back(&item3);
+			mockItems.at(0)->totalPrice = 1000;
+			mockItems.at(1)->totalPrice = 1000;
+			mockItems.at(2)->totalPrice = 1000;
 		}
 		void TearDown() override {
 			mockItems.clear();
 		}
 		std::vector<IItem*> mockItems;
+		MockItem item1;
+		MockItem item2;
+		MockItem item3;
 	};
 
 	TEST_F(TaxCalTest, CorrectTotalExTax) {
