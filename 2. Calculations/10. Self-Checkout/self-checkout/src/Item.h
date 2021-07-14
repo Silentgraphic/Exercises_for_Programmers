@@ -2,7 +2,9 @@
 
 #include"ICurrency.h"
 
-class Item {
+#include "IItem.h"
+
+class Item : public IItem {
 public:
 	Item(ICurrency& price) :
 		price(price) {
