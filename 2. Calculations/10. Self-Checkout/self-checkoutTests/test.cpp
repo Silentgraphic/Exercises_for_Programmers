@@ -5,9 +5,12 @@
 #include "USD.h"
 #include "Item.h"
 #include "TaxCal.h"
+#include "ITaxCal.h"
+#include "DataManager.h"
 
 #include "MockClasses/MockCurrency.h"
 #include "MockClasses/MockItem.h"
+#include "MockClasses/MockTaxCal.h"
 
 namespace USDTests {
 	USD usdTest(2000);
@@ -61,5 +64,21 @@ namespace TaxCalTests {
 		TaxCal testTaxCal(mockItems);
 		long int totalIncTax = testTaxCal.calculateTotalIncTax();
 		EXPECT_EQ(3170, totalIncTax);
+	}
+}
+
+namespace DataManagerTests {
+	class  DataManagerTest : public ::testing::Test {
+	protected:
+		MockTaxCal taxCal;
+	};
+	MockCurrency currency(2000);
+
+	TEST_F(DataManagerTest, GetsUserIntput) {
+		DataManager dataMananger(currency, taxCal);
+		dataMananger.getItems<MockItem>();
+		for (auto& ptr : dataMananger.items) {
+			EXPECT_NE(ptr, nullptr);
+		};
 	}
 }
