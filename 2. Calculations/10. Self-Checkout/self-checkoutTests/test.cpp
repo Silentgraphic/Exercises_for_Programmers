@@ -60,6 +60,6 @@ namespace TaxCalTests {
 	TEST_F(TaxCalTest, CorrectTotalIncTax) {
 		TaxCal testTaxCal(mockItems);
 		long int totalIncTax = testTaxCal.calculateTotalIncTax();
-		EXPECT_EQ(3165, totalIncTax);
+		EXPECT_EQ(3170, totalIncTax);
 	}
 }
