@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Interfaces">
+      <UniqueIdentifier>{9f883fe4-93a5-45ff-931a-0ee812afa0ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\self-checkout.cpp">
@@ -35,17 +38,17 @@
     <ClInclude Include="src\Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\ICurrency.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\USD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\ICurrency.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
     <ClInclude Include="src\IItem.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="src\ITaxCal.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
