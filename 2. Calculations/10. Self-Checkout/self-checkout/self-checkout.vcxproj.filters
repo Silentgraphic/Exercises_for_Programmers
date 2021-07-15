@@ -44,5 +44,8 @@
     <ClInclude Include="src\IItem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\ITaxCal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

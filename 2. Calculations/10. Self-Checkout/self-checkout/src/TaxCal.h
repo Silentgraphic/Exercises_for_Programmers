@@ -1,8 +1,9 @@
 #pragma once
 #include <vector>
 #include "IItem.h"
+#include "ITaxCal.h"
 
-class TaxCal {
+class TaxCal : public ITaxCal {
 public:
 	TaxCal(std::vector<IItem*> itemList);
 	unsigned long int calculateTotalExTax();

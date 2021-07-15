@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClInclude Include="src\ICurrency.h" />
     <ClInclude Include="src\IItem.h" />
+    <ClInclude Include="src\ITaxCal.h" />
     <ClInclude Include="src\Item.h" />
     <ClInclude Include="src\TaxCal.h" />
     <ClInclude Include="src\USD.h" />
