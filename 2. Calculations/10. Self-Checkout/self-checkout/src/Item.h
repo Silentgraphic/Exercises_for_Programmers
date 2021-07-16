@@ -11,6 +11,7 @@ public:
 	};
 	unsigned long int totalPrice;
 	void calculateTotal(int quantity);
+	void setCurrency(ICurrency& price);
 private:
 	ICurrency& price;
 	int quantity;
