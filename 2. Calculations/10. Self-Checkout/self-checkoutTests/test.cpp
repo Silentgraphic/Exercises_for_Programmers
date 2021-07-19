@@ -72,13 +72,12 @@ namespace DataManagerTests {
 	protected:
 		MockTaxCal taxCal;
 	};
-	MockCurrency currency(2000);
 
-	TEST_F(DataManagerTest, GetsUserIntput) {
-		DataManager dataMananger(currency, taxCal);
+	TEST_F(DataManagerTest, GetItemsReturnsVectorOfPointers) {
+		DataManager<MockCurrency> dataMananger;
 		dataMananger.getItems<MockItem>();
-		for (auto& ptr : dataMananger.items) {
-			EXPECT_NE(ptr, nullptr);
-		};
+		for (auto& itemPtr : dataMananger.items) {
+			EXPECT_NE(itemPtr, nullptr);
+		}
 	}
 }
