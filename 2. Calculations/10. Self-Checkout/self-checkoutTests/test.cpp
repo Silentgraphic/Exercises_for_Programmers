@@ -71,13 +71,23 @@ namespace DataManagerTests {
 	class  DataManagerTest : public ::testing::Test {
 	protected:
 		MockTaxCal taxCal;
+		DataManager<MockCurrency> dataMananger;
 	};
 
 	TEST_F(DataManagerTest, GetItemsReturnsVectorOfPointers) {
-		DataManager<MockCurrency> dataMananger;
 		dataMananger.getItems<MockItem>();
 		for (auto& itemPtr : dataMananger.items) {
 			EXPECT_NE(itemPtr, nullptr);
 		}
+	}
+
+	TEST_F(DataManagerTest, ExpectEachItemToHaveCallCalculateTotal) {
+		//Add at least 3 items so I have something to test on
+		dataMananger.getItems<MockItem>();
+		//Get pointer to a mock obeject
+		MockItem* mockItem = dynamic_cast<MockItem*>(dataMananger.items[0]);
+		EXPECT_CALL(*mockItem, calculateTotal)
+			.Times(testing::AtLeast(1));
+		dataMananger.getItems<MockItem>();
 	}
 }
