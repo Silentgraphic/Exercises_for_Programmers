@@ -9,7 +9,7 @@ public:
 	Item(ICurrency& price) :
 		price(price) {
 	};
-	unsigned long int totalPrice;
+	unsigned long int totalPrice = NULL;
 	void calculateTotal(int quantity);
 	void setCurrency(ICurrency& price);
 private:
