@@ -1,16 +1,16 @@
 #pragma once
 #include <vector>
 #include "IItem.h"
-#include "ITaxCal.h"
+#include "IDataManager.h"
 
-class TaxCal : public ITaxCal {
+class TaxCal {
 public:
-	TaxCal(std::vector<IItem*> itemList);
+	TaxCal(IDataManager& dataManager);
 	unsigned long int calculateTotalExTax();
 	unsigned long int calculateTotalIncTax();
-	unsigned long int tax;
 private:
-	std::vector<IItem*> itemList;
+	IDataManager& dataManager;
+	std::vector<std::unique_ptr<IItem>> itemList;
 	const float taxPercent = 5.5;
-	void calculateTax();
+	unsigned long int calculateTax(unsigned long int total);
 };
