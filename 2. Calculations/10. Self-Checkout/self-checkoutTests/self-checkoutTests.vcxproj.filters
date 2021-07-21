@@ -13,7 +13,7 @@
     <ClInclude Include="MockClasses\MockItem.h">
       <Filter>MockClasses</Filter>
     </ClInclude>
-    <ClInclude Include="MockClasses\MockTaxCal.h">
+    <ClInclude Include="MockClasses\MockDataManager.h">
       <Filter>MockClasses</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,16 +1,16 @@
 #include <iostream>
 #include <vector>
+#include <memory>
 
 #include "pch.h"
 #include "USD.h"
 #include "Item.h"
 #include "TaxCal.h"
-#include "ITaxCal.h"
 #include "DataManager.h"
 
 #include "MockClasses/MockCurrency.h"
 #include "MockClasses/MockItem.h"
-#include "MockClasses/MockTaxCal.h"
+#include "MockClasses/MockDataManager.h"
 
 namespace USDTests {
 	USD usdTest(2000);
@@ -38,56 +38,63 @@ namespace ItemTests {
 namespace TaxCalTests {
 	class  TaxCalTest : public ::testing::Test {
 	protected:
-		void SetUp() override {
-			mockItems.push_back(&item1);
-			mockItems.push_back(&item2);
-			mockItems.push_back(&item3);
-			mockItems.at(0)->totalPrice = 1000;
-			mockItems.at(1)->totalPrice = 1000;
-			mockItems.at(2)->totalPrice = 1000;
-		}
-		void TearDown() override {
-			mockItems.clear();
-		}
-		std::vector<IItem*> mockItems;
-		MockItem item1;
-		MockItem item2;
-		MockItem item3;
+		MockDataManager mockDataManger;
+	};
+
+	TEST_F(TaxCalTest, GetItemsCalledAtLeast3Times) {
+		TaxCal testTaxCal(mockDataManger);
+
+		EXPECT_CALL(mockDataManger, getItems)
+			.Times(testing::AtLeast(3))
+			.WillRepeatedly([]() {
+			std::unique_ptr<IItem> item = std::unique_ptr<IItem>(new MockItem);
+			item->totalPrice = 1000;
+			return item;
+		});
+		testTaxCal.calculateTotalExTax();
 	};
 
 	TEST_F(TaxCalTest, CorrectTotalExTax) {
-		TaxCal testTaxCal(mockItems);
+		TaxCal testTaxCal(mockDataManger);
+
+		EXPECT_CALL(mockDataManger, getItems)
+			.WillRepeatedly([]() {
+			std::unique_ptr<IItem> item = std::unique_ptr<IItem>(new MockItem);
+			item->totalPrice = 1000;
+			return item;
+		});
+
 		long int totalExTax = testTaxCal.calculateTotalExTax();
 		EXPECT_EQ(3000, totalExTax);
 	}
 	TEST_F(TaxCalTest, CorrectTotalIncTax) {
-		TaxCal testTaxCal(mockItems);
+		TaxCal testTaxCal(mockDataManger);
+
+		EXPECT_CALL(mockDataManger, getItems)
+			.WillRepeatedly([]() {
+			std::unique_ptr<IItem> item = std::unique_ptr<IItem>(new MockItem);
+			item->totalPrice = 1000;
+			return item;
+		});
+
 		long int totalIncTax = testTaxCal.calculateTotalIncTax();
 		EXPECT_EQ(3170, totalIncTax);
 	}
 }
 
-namespace DataManagerTests {
-	class  DataManagerTest : public ::testing::Test {
-	protected:
-		MockTaxCal taxCal;
-		DataManager<MockCurrency> dataMananger;
-	};
-
-	TEST_F(DataManagerTest, GetItemsReturnsVectorOfPointers) {
-		dataMananger.getItems<MockItem>();
-		for (auto& itemPtr : dataMananger.items) {
-			EXPECT_NE(itemPtr, nullptr);
-		}
-	}
-
-	TEST_F(DataManagerTest, ExpectEachItemToHaveCallCalculateTotal) {
-		//Add at least 3 items so I have something to test on
-		dataMananger.getItems<MockItem>();
-		//Get pointer to a mock obeject
-		MockItem* mockItem = dynamic_cast<MockItem*>(dataMananger.items[0]);
-		EXPECT_CALL(*mockItem, calculateTotal)
-			.Times(testing::AtLeast(1));
-		dataMananger.getItems<MockItem>();
-	}
-}
+//namespace DataManagerTests {
+//	class  DataManagerTest : public ::testing::Test {
+//	protected:
+//		DataManager dataMananger;
+//	};
+//
+//	TEST_F(DataManagerTest, FetItemReturnsTypeOfIItem) {
+//		std::unique_ptr<IItem> returnedItem = dataMananger.getItems();
+//		EXPECT_NE(NULL, returnedItem);
+//	}
+//
+//	TEST_F(DataManagerTest, ReturnedItemToHaveATotalPrice) {
+//		std::unique_ptr<IItem> returnedItem = dataMananger.getItems();
+//		EXPECT_NE(NULL, returnedItem->totalPrice);
+//	}
+//}

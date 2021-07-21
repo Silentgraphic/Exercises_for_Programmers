@@ -40,8 +40,8 @@
   </PropertyGroup>
   <ItemGroup>
     <ClInclude Include="MockClasses\MockCurrency.h" />
+    <ClInclude Include="MockClasses\MockDataManager.h" />
     <ClInclude Include="MockClasses\MockItem.h" />
-    <ClInclude Include="MockClasses\MockTaxCal.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
