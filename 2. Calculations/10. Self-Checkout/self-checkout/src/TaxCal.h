@@ -13,4 +13,5 @@ private:
 	std::vector<std::unique_ptr<IItem>> itemList;
 	const float taxPercent = 5.5;
 	unsigned long int calculateTax(unsigned long int total);
+	void generateItemList();
 };
