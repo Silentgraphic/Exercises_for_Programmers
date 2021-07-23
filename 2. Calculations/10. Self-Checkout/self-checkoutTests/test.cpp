@@ -82,19 +82,23 @@ namespace TaxCalTests {
 	}
 }
 
-//namespace DataManagerTests {
-//	class  DataManagerTest : public ::testing::Test {
-//	protected:
-//		DataManager dataMananger;
-//	};
-//
-//	TEST_F(DataManagerTest, FetItemReturnsTypeOfIItem) {
-//		std::unique_ptr<IItem> returnedItem = dataMananger.getItems();
-//		EXPECT_NE(NULL, returnedItem);
-//	}
-//
-//	TEST_F(DataManagerTest, ReturnedItemToHaveATotalPrice) {
-//		std::unique_ptr<IItem> returnedItem = dataMananger.getItems();
-//		EXPECT_NE(NULL, returnedItem->totalPrice);
-//	}
-//}
+namespace DataManagerTests {
+	class  DataManagerTest : public ::testing::Test {
+	protected:
+		DataManager dataMananger;
+	};
+
+	TEST_F(DataManagerTest, FetItemReturnsTypeOfIItem) {
+		auto returnedItem = dataMananger.getItems();
+		EXPECT_NE(nullptr, returnedItem);
+	}
+
+	TEST_F(DataManagerTest, ReturnedItemToHaveATotalPrice) {
+		auto returnedItemPtr = dataMananger.getItems();
+		EXPECT_NE(NULL, returnedItemPtr->totalPrice);
+	}
+	TEST_F(DataManagerTest, ExepctTotalPriceToBe1000) {
+		auto returnedItemPtr = std::move(dataMananger.getItems());
+		EXPECT_EQ(1000, returnedItemPtr->totalPrice);
+	}
+}
