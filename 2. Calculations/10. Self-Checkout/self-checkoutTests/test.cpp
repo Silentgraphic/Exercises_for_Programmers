@@ -11,6 +11,7 @@
 #include "MockClasses/MockCurrency.h"
 #include "MockClasses/MockItem.h"
 #include "MockClasses/MockDataManager.h"
+#include "MockClasses/MockUserInput.h"
 
 namespace USDTests {
 	USD usdTest(2000);
@@ -85,20 +86,28 @@ namespace TaxCalTests {
 namespace DataManagerTests {
 	class  DataManagerTest : public ::testing::Test {
 	protected:
-		DataManager dataMananger;
+		MockUserInput mockUserInput;
 	};
 
 	TEST_F(DataManagerTest, FetItemReturnsTypeOfIItem) {
+		DataManager dataMananger(mockUserInput);
 		auto returnedItem = dataMananger.getItems();
 		EXPECT_NE(nullptr, returnedItem);
 	}
 
 	TEST_F(DataManagerTest, ReturnedItemToHaveATotalPrice) {
+		DataManager dataMananger(mockUserInput);
 		auto returnedItemPtr = dataMananger.getItems();
 		EXPECT_NE(NULL, returnedItemPtr->totalPrice);
 	}
 	TEST_F(DataManagerTest, ExepctTotalPriceToBe1000) {
+		DataManager dataMananger(mockUserInput);
 		auto returnedItemPtr = std::move(dataMananger.getItems());
 		EXPECT_EQ(1000, returnedItemPtr->totalPrice);
+	}
+	TEST_F(DataManagerTest, ExpectPromptUserToBeCalledAtLeastOnce) {
+		DataManager dataMananger(mockUserInput);
+		EXPECT_CALL(mockUserInput, promptUser)
+			.Times(testing::AtLeast(1));
 	}
 }
