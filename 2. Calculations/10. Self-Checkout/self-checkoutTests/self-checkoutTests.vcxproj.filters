@@ -16,6 +16,9 @@
     <ClInclude Include="MockClasses\MockDataManager.h">
       <Filter>MockClasses</Filter>
     </ClInclude>
+    <ClInclude Include="MockClasses\MockUserInput.h">
+      <Filter>MockClasses</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="MockClasses">

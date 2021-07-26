@@ -42,6 +42,7 @@
     <ClInclude Include="MockClasses\MockCurrency.h" />
     <ClInclude Include="MockClasses\MockDataManager.h" />
     <ClInclude Include="MockClasses\MockItem.h" />
+    <ClInclude Include="MockClasses\MockUserInput.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
