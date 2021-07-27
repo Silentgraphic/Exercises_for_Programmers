@@ -1,8 +1,10 @@
 #pragma once
 
 #include "IUserInput.h"
+#include <string>
+#include <iostream>
 
 class  MockUserInput : public IUserInput {
 public:
-	MOCK_METHOD(void, promptUser, (std::string prompt));
+	MOCK_METHOD(std::stringstream&, promptUser, (std::string prompt));
 };

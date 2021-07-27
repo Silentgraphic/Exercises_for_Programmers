@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <memory>
+#include <string>
 
 #include "pch.h"
 #include "USD.h"
@@ -84,30 +85,38 @@ namespace TaxCalTests {
 }
 
 namespace DataManagerTests {
+	MockUserInput mockUserInput;
+	DataManager dataMananger(mockUserInput);
 	class  DataManagerTest : public ::testing::Test {
-	protected:
-		MockUserInput mockUserInput;
+	public:
+		std::stringstream mockStream;
+		void SetUp() override {
+			mockStream << "1" << std::endl << "1000";
+		}
 	};
 
 	TEST_F(DataManagerTest, FetItemReturnsTypeOfIItem) {
-		DataManager dataMananger(mockUserInput);
+		EXPECT_CALL(mockUserInput, promptUser)
+			.WillRepeatedly(testing::ReturnRef(mockStream));
 		auto returnedItem = dataMananger.getItems();
 		EXPECT_NE(nullptr, returnedItem);
 	}
 
 	TEST_F(DataManagerTest, ReturnedItemToHaveATotalPrice) {
-		DataManager dataMananger(mockUserInput);
+		EXPECT_CALL(mockUserInput, promptUser)
+			.WillRepeatedly(testing::ReturnRef(mockStream));
 		auto returnedItemPtr = dataMananger.getItems();
 		EXPECT_NE(NULL, returnedItemPtr->totalPrice);
 	}
 	TEST_F(DataManagerTest, ExepctTotalPriceToBe1000) {
-		DataManager dataMananger(mockUserInput);
+		EXPECT_CALL(mockUserInput, promptUser)
+			.WillRepeatedly(testing::ReturnRef(mockStream));
 		auto returnedItemPtr = std::move(dataMananger.getItems());
 		EXPECT_EQ(1000, returnedItemPtr->totalPrice);
 	}
 	TEST_F(DataManagerTest, ExpectPromptUserToBeCalledAtLeastOnce) {
-		DataManager dataMananger(mockUserInput);
 		EXPECT_CALL(mockUserInput, promptUser)
-			.Times(testing::AtLeast(1));
+			.Times(testing::AtLeast(1))
+			.WillRepeatedly(testing::ReturnRef(mockStream));
 	}
 }
