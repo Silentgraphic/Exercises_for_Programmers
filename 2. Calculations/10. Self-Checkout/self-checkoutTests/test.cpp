@@ -15,9 +15,16 @@
 #include "MockClasses/MockUserInput.h"
 
 namespace USDTests {
-	USD usdTest(2000);
-	TEST(USDTest, ExpectConstructorToset) {
+	TEST(USDTest, ExpectConstructorTosetInt) {
+		long int test = 2000;
+		USD usdTest(test);
 		EXPECT_EQ(2000, usdTest.twoSignificantDigits);
+	}
+
+	TEST(USDTest, ExpectConstructorTosetDouble) {
+		long double test = 1.11;
+		USD usdTest(test);
+		EXPECT_EQ(111, usdTest.twoSignificantDigits);
 	}
 }
 
