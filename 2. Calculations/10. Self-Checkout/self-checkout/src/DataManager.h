@@ -13,7 +13,9 @@
 
 class DataManager : public IDataManager {
 public:
-	DataManager(IUserInput& userInput) : userInput(userInput) {};
+	DataManager(IUserInput& userInput) :
+		userInput(userInput) {
+	};
 	std::unique_ptr<IItem> getItems();
 private:
 	IUserInput& userInput;

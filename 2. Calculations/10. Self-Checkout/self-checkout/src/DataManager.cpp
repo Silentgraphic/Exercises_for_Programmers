@@ -2,8 +2,7 @@
 
 std::unique_ptr<IItem> DataManager::getItems() {
 	long int amountOfItems = 0;
-	std::stringstream& userString = userInput.promptUser("How Many Items");
-	userString >> amountOfItems;
+	userInput.promptUser("How Many Items") >> amountOfItems;
 
 	std::unique_ptr<ICurrency> uSD = std::move(getUserIntput());
 	auto item = std::move(std::make_unique<Item>(*uSD));
@@ -12,8 +11,7 @@ std::unique_ptr<IItem> DataManager::getItems() {
 }
 
 std::unique_ptr<ICurrency> DataManager::getUserIntput() {
-	long int userValue = 0;
-	std::stringstream& userString = userInput.promptUser("How Many Items");
-	userString >> userValue;
+	long double userValue = 0;
+	userInput.promptUser("How Many Items") >> userValue;
 	return std::unique_ptr<ICurrency>(new USD(userValue));
 }
