@@ -20,11 +20,10 @@ namespace USDTests {
 		USD usdTest(test);
 		EXPECT_EQ(2000, usdTest.twoSignificantDigits);
 	}
-
 	TEST(USDTest, ExpectConstructorTosetDouble) {
 		long double test = 1.11;
 		USD usdTest(test);
-		EXPECT_EQ(111, usdTest.twoSignificantDigits);
+		EXPECT_EQ(1110, usdTest.twoSignificantDigits);
 	}
 }
 
@@ -98,7 +97,7 @@ namespace DataManagerTests {
 	public:
 		std::stringstream mockStream;
 		void SetUp() override {
-			mockStream << "1" << std::endl << "1000";
+			mockStream << "1" << std::endl << "1";
 		}
 	};
 
