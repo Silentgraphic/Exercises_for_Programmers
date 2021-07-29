@@ -2,7 +2,6 @@
 
 #include "IUserInput.h"
 #include <string>
-#include <iostream>
 
 class  MockUserInput : public IUserInput {
 public:

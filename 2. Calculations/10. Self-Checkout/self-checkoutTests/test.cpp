@@ -8,11 +8,13 @@
 #include "Item.h"
 #include "TaxCal.h"
 #include "DataManager.h"
+#include "User_prompt.h"
 
 #include "MockClasses/MockCurrency.h"
 #include "MockClasses/MockItem.h"
 #include "MockClasses/MockDataManager.h"
 #include "MockClasses/MockUserInput.h"
+#include "MockClasses/MockValidator.h"
 
 namespace USDTests {
 	TEST(USDTest, ExpectConstructorTosetInt) {
@@ -136,5 +138,57 @@ namespace DataManagerTests {
 			.WillRepeatedly(testing::ReturnRef(mockStreamFloat));
 		EXPECT_CALL(mockUserInputInt, promptUser)
 			.WillRepeatedly(testing::ReturnRef(mockStreamInt));
+	}
+}
+
+namespace GetUserIntput {
+	class  GetUserInputTest : public ::testing::Test {
+	protected:
+		void SetUp() override {
+		}
+		void TearDown() override {
+			fakeInput.str("");
+			fakeInput.clear();
+			output.str("");
+			output.clear();
+		}
+		UserInput testUserInput = UserInput(fakeInput, output, mockValidator);
+		MockValidator mockValidator;
+		std::stringstream fakeInput;
+		std::stringstream output;
+	};
+	TEST_F(GetUserInputTest, PrintsErrorWIthInvalidInput) {
+		EXPECT_CALL(mockValidator, ValidateInput)
+			.WillRepeatedly(testing::Throw(std::runtime_error("Err")));
+
+		testUserInput.promptUser("");
+
+		EXPECT_EQ("Err", output.str());
+	}
+	TEST_F(GetUserInputTest, ExpectAPromtForUser) {
+		const std::string prompt = "What is foo?\n";
+
+		fakeInput << std::endl;
+
+		testUserInput.promptUser(prompt);
+
+		EXPECT_EQ(prompt, output.str());
+	}
+	TEST_F(GetUserInputTest, ReturnsInt) {
+		fakeInput << "1";
+
+		long double outputAsInt = 0;
+		testUserInput.promptUser("") >> outputAsInt;
+
+		EXPECT_EQ(outputAsInt, 1);
+	}
+
+	TEST_F(GetUserInputTest, ReturnsDouble) {
+		fakeInput << "1.1";
+
+		long double outputAsDouble = 0;
+		testUserInput.promptUser("") >> outputAsDouble;
+
+		EXPECT_EQ(outputAsDouble, 1.1);
 	}
 }
