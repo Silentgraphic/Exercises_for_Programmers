@@ -91,38 +91,50 @@ namespace TaxCalTests {
 }
 
 namespace DataManagerTests {
-	MockUserInput mockUserInput;
-	DataManager dataMananger(mockUserInput);
+	MockUserInput mockUserInputFloat;
+	MockUserInput mockUserInputInt;
+	DataManager dataMananger(mockUserInputFloat, mockUserInputInt);
 	class  DataManagerTest : public ::testing::Test {
 	public:
-		std::stringstream mockStream;
+		std::stringstream mockStreamFloat;
+		std::stringstream mockStreamInt;
 		void SetUp() override {
-			mockStream << "1" << std::endl << "1";
+			mockStreamFloat << "1.0" << std::endl;
+			mockStreamInt << "1" << std::endl;
 		}
 	};
 
 	TEST_F(DataManagerTest, FetItemReturnsTypeOfIItem) {
-		EXPECT_CALL(mockUserInput, promptUser)
-			.WillRepeatedly(testing::ReturnRef(mockStream));
+		EXPECT_CALL(mockUserInputFloat, promptUser)
+			.WillRepeatedly(testing::ReturnRef(mockStreamFloat));
+		EXPECT_CALL(mockUserInputInt, promptUser)
+			.WillRepeatedly(testing::ReturnRef(mockStreamInt));
 		auto returnedItem = dataMananger.getItems();
 		EXPECT_NE(nullptr, returnedItem);
 	}
 
 	TEST_F(DataManagerTest, ReturnedItemToHaveATotalPrice) {
-		EXPECT_CALL(mockUserInput, promptUser)
-			.WillRepeatedly(testing::ReturnRef(mockStream));
+		EXPECT_CALL(mockUserInputFloat, promptUser)
+			.WillRepeatedly(testing::ReturnRef(mockStreamFloat));
+		EXPECT_CALL(mockUserInputInt, promptUser)
+			.WillRepeatedly(testing::ReturnRef(mockStreamInt));
 		auto returnedItemPtr = dataMananger.getItems();
+
 		EXPECT_NE(NULL, returnedItemPtr->totalPrice);
 	}
 	TEST_F(DataManagerTest, ExepctTotalPriceToBe1000) {
-		EXPECT_CALL(mockUserInput, promptUser)
-			.WillRepeatedly(testing::ReturnRef(mockStream));
+		EXPECT_CALL(mockUserInputFloat, promptUser)
+			.WillRepeatedly(testing::ReturnRef(mockStreamFloat));
+		EXPECT_CALL(mockUserInputInt, promptUser)
+			.WillRepeatedly(testing::ReturnRef(mockStreamInt));
 		auto returnedItemPtr = std::move(dataMananger.getItems());
 		EXPECT_EQ(1000, returnedItemPtr->totalPrice);
 	}
-	TEST_F(DataManagerTest, ExpectPromptUserToBeCalledAtLeastOnce) {
-		EXPECT_CALL(mockUserInput, promptUser)
+	TEST_F(DataManagerTest, ExpectPromptUserToBeCalledAtLeastOnceForIntAndFloat) {
+		EXPECT_CALL(mockUserInputFloat, promptUser)
 			.Times(testing::AtLeast(1))
-			.WillRepeatedly(testing::ReturnRef(mockStream));
+			.WillRepeatedly(testing::ReturnRef(mockStreamFloat));
+		EXPECT_CALL(mockUserInputInt, promptUser)
+			.WillRepeatedly(testing::ReturnRef(mockStreamInt));
 	}
 }

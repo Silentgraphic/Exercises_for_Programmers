@@ -13,11 +13,13 @@
 
 class DataManager : public IDataManager {
 public:
-	DataManager(IUserInput& userInput) :
-		userInput(userInput) {
+	DataManager(IUserInput& userInputPrice, IUserInput& userInputQuantity) :
+		userInputPrice(userInputPrice),
+		userInputQuantity(userInputQuantity) {
 	};
 	std::unique_ptr<IItem> getItems();
 private:
-	IUserInput& userInput;
+	IUserInput& userInputPrice;
+	IUserInput& userInputQuantity;
 	std::unique_ptr<ICurrency> getUserIntput();
 };
