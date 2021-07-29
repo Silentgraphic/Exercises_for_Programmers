@@ -146,6 +146,7 @@
     <ClCompile Include="src\self-checkout.cpp" />
     <ClCompile Include="src\TaxCal.cpp" />
     <ClCompile Include="src\USD.cpp" />
+    <ClCompile Include="src\User_prompt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DataManager.h" />
@@ -153,11 +154,11 @@
     <ClInclude Include="src\IDataManager.h" />
     <ClInclude Include="src\IItem.h" />
     <ClInclude Include="src\Item.h" />
+    <ClInclude Include="src\IUserInput.h" />
+    <ClInclude Include="src\IValidateInput.h" />
     <ClInclude Include="src\TaxCal.h" />
     <ClInclude Include="src\USD.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClInclude Include="src\User_prompt.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

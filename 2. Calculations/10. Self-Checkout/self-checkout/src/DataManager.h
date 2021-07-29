@@ -13,6 +13,7 @@
 
 class DataManager : public IDataManager {
 public:
+	//Need to a way to choose validator without creating new class
 	DataManager(IUserInput& userInputPrice, IUserInput& userInputQuantity) :
 		userInputPrice(userInputPrice),
 		userInputQuantity(userInputQuantity) {
