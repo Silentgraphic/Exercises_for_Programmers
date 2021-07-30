@@ -7,6 +7,8 @@ std::stringstream& UserInput::promptUser(std::string prompt) {
 }
 
 void UserInput::getValidatedUserInput() {
+	validatedInput.str("");
+	validatedInput.clear();
 	std::string strInput = "";
 	do {
 		std::getline(inputStream, strInput);
