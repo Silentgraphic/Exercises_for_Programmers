@@ -19,7 +19,6 @@ void UserInput::getValidatedUserInput() {
 		catch (std::runtime_error& err) {
 			outputStream << err.what();
 		}
-		break;
 	} while (true);
 	validatedInput << strInput;
 };
