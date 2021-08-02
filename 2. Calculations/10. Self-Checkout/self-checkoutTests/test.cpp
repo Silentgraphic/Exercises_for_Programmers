@@ -9,6 +9,8 @@
 #include "TaxCal.h"
 #include "DataManager.h"
 #include "User_prompt.h"
+#include "ValidateWholeNumber.h"
+#include "ValidatePrice.h"
 
 #include "MockClasses/MockCurrency.h"
 #include "MockClasses/MockItem.h"
@@ -159,7 +161,8 @@ namespace GetUserIntput {
 	};
 	TEST_F(GetUserInputTest, PrintsErrorWIthInvalidInput) {
 		EXPECT_CALL(mockValidator, ValidateInput)
-			.WillRepeatedly(testing::Throw(std::runtime_error("Err")));
+			.WillOnce(testing::Throw(std::runtime_error("Err")))
+			.WillOnce(testing::Return());
 
 		testUserInput.promptUser("");
 
@@ -190,5 +193,64 @@ namespace GetUserIntput {
 		testUserInput.promptUser("") >> outputAsDouble;
 
 		EXPECT_EQ(outputAsDouble, 1.1);
+	}
+}
+
+namespace ValidatorWholeNumber {
+	ValidateWholeNumber validateTest;
+	const std::string testString = "foo";
+	const std::string wholeNumber = "1";
+	const std::string decimalNumber = "1.1";
+	TEST(ValidateWholeNumber, DoesNotThrowException) {
+		EXPECT_NO_THROW(validateTest.ValidateInput(wholeNumber));
+	}
+	TEST(ValidateWholeNumber, DoesThrowExceptionForString) {
+		EXPECT_ANY_THROW(validateTest.ValidateInput(testString));
+	}
+	TEST(ValidateWholeNumber, DoesThrowExceptionForDecimalPlace) {
+		EXPECT_ANY_THROW(validateTest.ValidateInput(decimalNumber));
+	}
+	TEST(ValidateWholeNumber, ThrowsInvalidForString) {
+		try {
+			validateTest.ValidateInput(testString);
+		}
+		catch (std::runtime_error& err) {
+			const std::string expectedString = "Invalid please enter number: ";
+			EXPECT_EQ(expectedString, err.what());
+		}
+	}
+	TEST(ValidateWholeNumber, ThrowsInvalidDecimalPlace) {
+		try {
+			validateTest.ValidateInput(decimalNumber);
+		}
+		catch (std::runtime_error& err) {
+			const std::string expectedString = "Invalid please enter correct quantity: ";
+			EXPECT_EQ(expectedString, err.what());
+		}
+	}
+}
+
+namespace ValidatorWPrice {
+	ValidatePrice validateTest;
+	const std::string testString = "foo";
+	const std::string wholeNumber = "1";
+	const std::string decimalNumber = "1.1";
+	TEST(ValidatePrice, DoesNotThrowException) {
+		EXPECT_NO_THROW(validateTest.ValidateInput(wholeNumber));
+	}
+	TEST(ValidatePrice, DoesThrowExceptionForString) {
+		EXPECT_ANY_THROW(validateTest.ValidateInput(testString));
+	}
+	TEST(ValidatePrice, DoesNotThrowExceptionForDecimalPlace) {
+		EXPECT_NO_THROW(validateTest.ValidateInput(decimalNumber));
+	}
+	TEST(ValidatePrice, ThrowsInvalidForString) {
+		try {
+			validateTest.ValidateInput(testString);
+		}
+		catch (std::runtime_error& err) {
+			const std::string expectedString = "Invalid please enter number: ";
+			EXPECT_EQ(expectedString, err.what());
+		}
 	}
 }
