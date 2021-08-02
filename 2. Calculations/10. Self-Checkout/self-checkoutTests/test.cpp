@@ -11,6 +11,7 @@
 #include "User_prompt.h"
 #include "ValidateWholeNumber.h"
 #include "ValidatePrice.h"
+#include "String_interpolation.h"
 
 #include "MockClasses/MockCurrency.h"
 #include "MockClasses/MockItem.h"
@@ -252,5 +253,51 @@ namespace ValidatorWPrice {
 			const std::string expectedString = "Invalid please enter number: ";
 			EXPECT_EQ(expectedString, err.what());
 		}
+	}
+}
+
+namespace StringInterpolation {
+	const std::map<std::string, std::string> testSubStrings = { {"foo" , "Foo"},{"bar", "Bar"} };
+	const std::map<std::string, int> testSubInt = { {"foo" , 1},{"bar", 2} };
+	std::string testSingleMarkerString = "What is {foo}?";
+	std::string testDoubleMarkerString = "What is {foo} {bar}?";
+	StringInter testStringInterpolation;
+
+	TEST(StringInterpolation, NoMarkerInFullString) {
+		std::string testStringNoMarker = "What is ?";
+
+		EXPECT_THROW(testStringInterpolation.interpolateString<std::string>(testStringNoMarker, testSubStrings), std::invalid_argument);
+	}
+
+	TEST(StringInterpolation, ReturnsStringWithSingleStringInput) {
+		const std::string expectedString = "What is Foo?";
+
+		std::string returnedString = testStringInterpolation.interpolateString<std::string>(testSingleMarkerString, testSubStrings);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+
+	TEST(StringInterpolation, ReturnsStringWithMultipleStringInput) {
+		const std::string expectedString = "What is Foo Bar?";
+
+		std::string returnedString = testStringInterpolation.interpolateString<std::string>(testDoubleMarkerString, testSubStrings);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+
+	TEST(StringInterpolation, ReturnsStringWithSingleIntInput) {
+		const std::string expectedString = "What is 1?";
+
+		std::string returnedString = testStringInterpolation.interpolateString<int>(testSingleMarkerString, testSubInt);
+
+		EXPECT_EQ(expectedString, returnedString);
+	}
+
+	TEST(StringInterpolation, ReturnsStringWithMultipleIntInput) {
+		const std::string expectedString = "What is 1 2?";
+
+		std::string returnedString = testStringInterpolation.interpolateString<int>(testDoubleMarkerString, testSubInt);
+
+		EXPECT_EQ(expectedString, returnedString);
 	}
 }
