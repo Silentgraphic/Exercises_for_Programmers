@@ -147,6 +147,8 @@
     <ClCompile Include="src\TaxCal.cpp" />
     <ClCompile Include="src\USD.cpp" />
     <ClCompile Include="src\User_prompt.cpp" />
+    <ClCompile Include="src\ValidatePrice.cpp" />
+    <ClCompile Include="src\ValidateWholeNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DataManager.h" />
@@ -159,6 +161,8 @@
     <ClInclude Include="src\TaxCal.h" />
     <ClInclude Include="src\USD.h" />
     <ClInclude Include="src\User_prompt.h" />
+    <ClInclude Include="src\ValidatePrice.h" />
+    <ClInclude Include="src\ValidateWholeNumber.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
