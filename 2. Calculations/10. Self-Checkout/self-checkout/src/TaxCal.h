@@ -8,10 +8,11 @@ public:
 	TaxCal(IDataManager& dataManager);
 	unsigned long int calculateTotalExTax();
 	unsigned long int calculateTotalIncTax();
+	unsigned long int calculateTax();
 private:
+	unsigned long int total = 0;
 	IDataManager& dataManager;
 	std::vector<std::unique_ptr<IItem>> itemList;
 	const float taxPercent = 5.5;
-	unsigned long int calculateTax(unsigned long int total);
 	void generateItemList();
 };

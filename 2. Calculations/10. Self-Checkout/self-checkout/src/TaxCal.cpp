@@ -6,7 +6,6 @@ TaxCal::TaxCal(IDataManager& dataManager) : dataManager(dataManager) {
 }
 
 unsigned long int TaxCal::calculateTotalExTax() {
-	unsigned long int total = 0;
 	if (itemList.size() == 0) {
 		generateItemList();
 	}
@@ -17,11 +16,13 @@ unsigned long int TaxCal::calculateTotalExTax() {
 }
 
 unsigned long int  TaxCal::calculateTotalIncTax() {
-	unsigned long int total = calculateTotalExTax();
-	return calculateTax(total) + total;
+	return calculateTax() + total;
 }
 
-unsigned long int TaxCal::calculateTax(unsigned long int total) {
+unsigned long int TaxCal::calculateTax() {
+	if (total == 0) {
+		calculateTotalExTax();
+	}
 	return std::round((total * taxPercent) / 1000) * 10;
 }
 
