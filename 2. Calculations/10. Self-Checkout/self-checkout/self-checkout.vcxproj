@@ -144,6 +144,7 @@
     <ClCompile Include="src\DataManager.cpp" />
     <ClCompile Include="src\Item.cpp" />
     <ClCompile Include="src\self-checkout.cpp" />
+    <ClCompile Include="src\SelfCheckoutOutput.cpp" />
     <ClCompile Include="src\TaxCal.cpp" />
     <ClCompile Include="src\USD.cpp" />
     <ClCompile Include="src\User_prompt.cpp" />
@@ -158,6 +159,8 @@
     <ClInclude Include="src\Item.h" />
     <ClInclude Include="src\IUserInput.h" />
     <ClInclude Include="src\IValidateInput.h" />
+    <ClInclude Include="src\SelfCheckoutOutput.h" />
+    <ClInclude Include="src\String_interpolation.h" />
     <ClInclude Include="src\TaxCal.h" />
     <ClInclude Include="src\USD.h" />
     <ClInclude Include="src\User_prompt.h" />
