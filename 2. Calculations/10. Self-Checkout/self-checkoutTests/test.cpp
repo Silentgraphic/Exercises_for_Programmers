@@ -12,6 +12,7 @@
 #include "ValidateWholeNumber.h"
 #include "ValidatePrice.h"
 #include "String_interpolation.h"
+#include "SelfCheckoutOutput.h"
 
 #include "MockClasses/MockCurrency.h"
 #include "MockClasses/MockItem.h"
@@ -299,5 +300,28 @@ namespace StringInterpolation {
 		std::string returnedString = testStringInterpolation.interpolateString<int>(testDoubleMarkerString, testSubInt);
 
 		EXPECT_EQ(expectedString, returnedString);
+	}
+}
+
+namespace selfCheckoutOutputTests {
+	class  selfCheckoutOutputTest : public ::testing::Test {
+	public:
+		void SetUp() override {
+			substrings.insert(std::pair("foo", 1000));
+		}
+
+		void TearDown() override {
+			substrings.clear();
+			output.str("");
+			output.clear();
+		}
+		std::map<std::string, long double> substrings;
+		std::stringstream output;
+		SelfCheckoutOutput outPutTest = SelfCheckoutOutput(output);
+	};
+
+	TEST_F(selfCheckoutOutputTest, PrintsCorrectOutput) {
+		outPutTest.printOutput(substrings, "test is {foo}");
+		EXPECT_EQ("test is 1\n", output.str());
 	}
 }
