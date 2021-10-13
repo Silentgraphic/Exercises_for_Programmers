@@ -18,3 +18,7 @@ struct Euro : public ICurrency {
 
 	std::string returnPresentableFormat();
 };
+
+std::string Euro::returnPresentableFormat() {
+	return std::string();
+}
