@@ -8,4 +8,8 @@ struct ICurrency {
 	};
 	long int twoSignificantDigits;
 	virtual std::string returnPresentableFormat() = 0;
+
+	//Conversion rates
+	long double toDollars = 0;
+	long double toEuros = 0;
 };

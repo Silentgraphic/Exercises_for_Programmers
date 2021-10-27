@@ -18,12 +18,18 @@
     <ClCompile Include="src\currency-conversion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="currencyConverter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ICurrency.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Euro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrencyConverter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

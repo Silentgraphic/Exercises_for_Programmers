@@ -13,9 +13,6 @@ struct Euro : public ICurrency {
 	//else just store it
 	Euro(const long int& priceInCents) :ICurrency(priceInCents) {};
 
-	//Conversion rates
-	const long double dollarsAsPercentage = 0;
-
 	std::string returnPresentableFormat();
 };
 
