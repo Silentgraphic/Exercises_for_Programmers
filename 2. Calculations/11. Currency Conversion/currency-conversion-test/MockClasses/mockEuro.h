@@ -5,9 +5,6 @@
 
 struct MockEuro : public ICurrency {
 public:
-
-	long int toDollars = 0;
-
-	MockEuro(const long int& value) : ICurrency(value) {};
+	MockEuro() : ICurrency(0) {};
 	MOCK_METHOD(std::string, returnPresentableFormat, ());
 };
