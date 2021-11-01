@@ -34,17 +34,17 @@ namespace CurrencyConverterTests {
 			CurrencyConverter testCurrencyConverter_2 = CurrencyConverter(euroTest_2);
 	};
 	TEST_F(currencyConverterTestEuros,WholeEurosConvertToEurosCorrectly) {
-		euroTest_1.toEuros = 1;
+		euroTest_1.toEurosAsPercentage = 100;
 		EXPECT_EQ(1000, testCurrencyConverter_1.convertToEuros());
 	}
 
 	TEST_F(currencyConverterTestEuros, FractionsOfEurosConvertToDollarsCorrectly_1) {
-		euroTest_2.toDollars = 2;
+		euroTest_2.toDollarsAsPercentage = 200;
 		EXPECT_EQ(3000, testCurrencyConverter_2.convertToDollars());
 	}
 
 	TEST_F(currencyConverterTestEuros, FractionsOfConvertToDollarsCorrectly_2) {
-		euroTest_2.toDollars = 3;
+		euroTest_2.toDollarsAsPercentage = 300;
 		EXPECT_EQ(4500, testCurrencyConverter_2.convertToDollars());
 	}
 }

@@ -10,6 +10,6 @@ struct ICurrency {
 	virtual std::string returnPresentableFormat() = 0;
 
 	//Conversion rates
-	long double toDollars = 0;
-	long double toEuros = 0;
+	long double toDollarsAsPercentage = 0;
+	long double toEurosAsPercentage = 0;
 };
