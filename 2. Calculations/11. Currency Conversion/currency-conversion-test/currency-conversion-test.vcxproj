@@ -33,25 +33,21 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\programming\efp\2. Calculations\11. Currency Conversion\packages\gmock.1.10.0\lib\native\include;$(IncludePath)</IncludePath>
+    <IncludePath>E:\programming\efp\2. Calculations\11. Currency Conversion\packages\gmock.1.11.0\lib\native\include;E:\programming\efp\2. Calculations\11. Currency Conversion\packages\gmock.1.10.0\lib\native\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>E:\programming\efp\2. Calculations\11. Currency Conversion\packages\gmock.1.10.0\lib\native\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClInclude Include="MockClasses\mockEuro.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\packages\gmock.1.10.0\lib\native\src\gtest\src\gtest_main.cc">
+    <ClCompile Include="..\packages\gmock.1.11.0\lib\native\src\gtest\src\gtest_main.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeaderOutputFile>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </PrecompiledHeaderOutputFile>
     </ClCompile>
     <ClCompile Include="test.cpp" />
@@ -87,6 +83,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Debug;E:\programming\efp\2. Calculations\11. Currency Conversion\Debug;E:\programming\efp\2. Calculations\11. Currency Conversion\currency-conversion\currency-conversion\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>currencyConverter.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

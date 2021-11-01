@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="..\packages\gmock.1.11.0\lib\native\src\gtest\src\gtest_main.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="MockClasses\mockEuro.h">
+      <Filter>MockClasses</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="MockClasses">
+      <UniqueIdentifier>{51d04722-a618-4cca-bdcd-f1ad76b0340b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
