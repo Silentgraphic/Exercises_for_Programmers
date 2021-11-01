@@ -141,11 +141,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="currencyConverter.cpp" />
     <ClCompile Include="src\currency-conversion.cpp" />
+    <ClCompile Include="src\currencyConverter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CurrencyConverter.h" />
+    <ClInclude Include="src\CurrencyConverter.h" />
     <ClInclude Include="src\Euro.h" />
     <ClInclude Include="src\ICurrency.h" />
   </ItemGroup>

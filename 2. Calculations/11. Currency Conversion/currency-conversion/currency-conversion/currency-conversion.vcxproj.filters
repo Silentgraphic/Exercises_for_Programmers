@@ -18,7 +18,7 @@
     <ClCompile Include="src\currency-conversion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="currencyConverter.cpp">
+    <ClCompile Include="src\currencyConverter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <ClInclude Include="src\Euro.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CurrencyConverter.h">
+    <ClInclude Include="src\CurrencyConverter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
