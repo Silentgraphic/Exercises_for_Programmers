@@ -33,18 +33,33 @@ namespace CurrencyConverterTests {
 			MockEuro euroTest_2;
 			CurrencyConverter testCurrencyConverter_2 = CurrencyConverter(euroTest_2);
 	};
-	TEST_F(currencyConverterTestEuros,WholeEurosConvertToEurosCorrectly) {
+	TEST_F(currencyConverterTestEuros,WholeEurosConvertToEurosCorrectlyWholePercent) {
 		euroTest_1.toEurosAsPercentage = 100;
 		EXPECT_EQ(1000, testCurrencyConverter_1.convertToEuros());
 	}
 
+	TEST_F(currencyConverterTestEuros, WholeEurosConvertToDollarsCorrectly_1) {
+		euroTest_1.toDollarsAsPercentage = 100;
+		EXPECT_EQ(1000, testCurrencyConverter_1.convertToDollars());
+	}
+
+	TEST_F(currencyConverterTestEuros, WholeEurosConvertToDollarsCorrectly_2) {
+		euroTest_1.toDollarsAsPercentage = 100.5;
+		EXPECT_EQ(1005, testCurrencyConverter_1.convertToDollars());
+	}
+
+	TEST_F(currencyConverterTestEuros, WholeEurosConvertToDollarsCorrectly_3) {
+		euroTest_1.toDollarsAsPercentage = 90;
+		EXPECT_EQ(900, testCurrencyConverter_1.convertToDollars());
+	}
+
 	TEST_F(currencyConverterTestEuros, FractionsOfEurosConvertToDollarsCorrectly_1) {
-		euroTest_2.toDollarsAsPercentage = 200;
-		EXPECT_EQ(3000, testCurrencyConverter_2.convertToDollars());
+		euroTest_2.toDollarsAsPercentage = 100;
+		EXPECT_EQ(1500, testCurrencyConverter_2.convertToDollars());
 	}
 
 	TEST_F(currencyConverterTestEuros, FractionsOfConvertToDollarsCorrectly_2) {
-		euroTest_2.toDollarsAsPercentage = 300;
-		EXPECT_EQ(4500, testCurrencyConverter_2.convertToDollars());
+		euroTest_2.toDollarsAsPercentage = 100.5;
+		EXPECT_EQ(1507, testCurrencyConverter_2.convertToDollars());
 	}
 }
