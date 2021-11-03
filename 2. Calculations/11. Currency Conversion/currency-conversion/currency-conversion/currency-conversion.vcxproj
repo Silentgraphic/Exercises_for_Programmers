@@ -143,11 +143,14 @@
   <ItemGroup>
     <ClCompile Include="src\currency-conversion.cpp" />
     <ClCompile Include="src\currencyConverter.cpp" />
+    <ClCompile Include="src\currencyConverterAdapter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\CurrencyConverter.h" />
+    <ClInclude Include="src\CurrencyConverterAdapter.h" />
     <ClInclude Include="src\Euro.h" />
     <ClInclude Include="src\ICurrency.h" />
+    <ClInclude Include="src\IUserInput.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
