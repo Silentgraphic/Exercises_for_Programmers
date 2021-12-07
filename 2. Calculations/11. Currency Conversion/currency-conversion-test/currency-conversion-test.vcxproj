@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ClInclude Include="MockClasses\mockEuro.h" />
+    <ClInclude Include="MockClasses\MockUserInput.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -84,7 +85,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)\Debug;E:\programming\efp\2. Calculations\11. Currency Conversion\Debug;E:\programming\efp\2. Calculations\11. Currency Conversion\currency-conversion\currency-conversion\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>currencyConverter.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>currencyConverter.obj;currencyConverterAdapter.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
