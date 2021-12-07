@@ -1,12 +1,15 @@
-#include <string>
-
 #include "pch.h"
 
+#include <string>
+#include <memory>
+
 #include "MockClasses/mockEuro.h"
+#include "MockClasses/MockUserInput.h"
 
 #include "Euro.h"
 #include "CurrencyConverter.h"
 #include "ICurrency.h"
+#include "CurrencyConverterAdapter.h"
 
 namespace EuroTests {
 	TEST(EuroTests, ExpectConstructorTosetInt) {
@@ -61,5 +64,33 @@ namespace CurrencyConverterTests {
 	TEST_F(currencyConverterTestEuros, FractionsOfConvertToDollarsCorrectly_2) {
 		euroTest_2.toDollarsAsPercentage = 100.5;
 		EXPECT_EQ(1507, testCurrencyConverter_2.convertToDollars());
+	}
+}
+
+namespace CurrencyConverterAdapterTests {
+	class CurrencyConverterAdapterTests : public::testing::Test {
+	protected:
+		MockUserInput mockUserInput;
+		std::stringstream mockStreamInt;
+		CurrencyConverterAdapter CurrencyConverterAdapterTest = CurrencyConverterAdapter(mockUserInput);
+
+		void SetUp() override {
+			mockStreamInt << "1000" << std::endl;
+		}
+	};
+
+	TEST_F(CurrencyConverterAdapterTests, CallsForUserInput) {
+		EXPECT_CALL(mockUserInput, promptUser)
+			.WillOnce(testing::ReturnRef(mockStreamInt));
+		CurrencyConverterAdapterTest.setValues();
+	}
+
+	TEST_F(CurrencyConverterAdapterTests, SetsValueOfEuro) {
+		ON_CALL(mockUserInput, promptUser)
+			.WillByDefault(testing::ReturnRef(mockStreamInt));
+
+		std::unique_ptr<ICurrency> returnedEuro = CurrencyConverterAdapterTest.setValues();
+
+		EXPECT_EQ(returnedEuro->twoSignificantDigits, 1000);
 	}
 }
