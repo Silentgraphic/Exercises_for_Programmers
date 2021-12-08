@@ -81,15 +81,17 @@ namespace CurrencyConverterAdapterTests {
 
 	TEST_F(CurrencyConverterAdapterTests, CallsForUserInput) {
 		EXPECT_CALL(mockUserInput, promptUser)
-			.WillOnce(testing::ReturnRef(mockStreamInt));
-		CurrencyConverterAdapterTest.setValues();
+			.WillRepeatedly(testing::ReturnRef(mockStreamInt));
+		auto returnedEuro = std::make_shared<MockEuro>();
+		CurrencyConverterAdapterTest.setValues(returnedEuro);
 	}
 
 	TEST_F(CurrencyConverterAdapterTests, SetsValueOfEuro) {
 		ON_CALL(mockUserInput, promptUser)
 			.WillByDefault(testing::ReturnRef(mockStreamInt));
 
-		std::unique_ptr<ICurrency> returnedEuro = CurrencyConverterAdapterTest.setValues();
+		auto returnedEuro = std::make_shared<MockEuro>();
+		CurrencyConverterAdapterTest.setValues(returnedEuro);
 
 		EXPECT_EQ(returnedEuro->twoSignificantDigits, 1000);
 	}
