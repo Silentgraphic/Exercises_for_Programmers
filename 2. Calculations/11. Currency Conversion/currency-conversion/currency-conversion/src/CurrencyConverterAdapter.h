@@ -11,7 +11,10 @@ class CurrencyConverterAdapter
 public:
 	CurrencyConverterAdapter(IUserInput& userInput):
 		userInput(userInput){};
-	std::unique_ptr<ICurrency> setValues();
+	void setValues(std::shared_ptr<ICurrency> currency);
 private:
+	long int euros;
+	long double percentage;
+	std::stringstream input;
 	IUserInput& userInput;
 };
