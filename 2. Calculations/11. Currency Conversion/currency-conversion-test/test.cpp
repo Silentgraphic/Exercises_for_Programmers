@@ -73,24 +73,23 @@ namespace CurrencyConverterAdapterTests {
 		MockUserInput mockUserInput;
 		std::stringstream mockStreamInt;
 		CurrencyConverterAdapter CurrencyConverterAdapterTest = CurrencyConverterAdapter(mockUserInput);
+		std::shared_ptr<MockEuro> returnedEuro;
 
 		void SetUp() override {
-			mockStreamInt << "1000" << std::endl;
+			mockStreamInt << "1" << std::endl;
+			returnedEuro = std::make_shared<MockEuro>();
 		}
 	};
 
 	TEST_F(CurrencyConverterAdapterTests, CallsForUserInput) {
 		EXPECT_CALL(mockUserInput, promptUser)
 			.WillRepeatedly(testing::ReturnRef(mockStreamInt));
-		auto returnedEuro = std::make_shared<MockEuro>();
 		CurrencyConverterAdapterTest.setValues(returnedEuro);
 	}
 
 	TEST_F(CurrencyConverterAdapterTests, SetsValueOfEuro) {
 		ON_CALL(mockUserInput, promptUser)
 			.WillByDefault(testing::ReturnRef(mockStreamInt));
-
-		auto returnedEuro = std::make_shared<MockEuro>();
 		CurrencyConverterAdapterTest.setValues(returnedEuro);
 
 		EXPECT_EQ(returnedEuro->twoSignificantDigits, 1000);
